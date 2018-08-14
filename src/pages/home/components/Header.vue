@@ -8,10 +8,10 @@
     <router-link to="/"></router-link>
     <ul class="right">
         <li><router-link to="/"><span @click="emitSlidebar('首页')">首页</span></router-link></li>
-        <li><span>号码查询</span></li>
-        <li><span>系统公告</span></li>
-        <li><span>文件下载</span></li>
-        <li><span>支持与帮助</span></li>
+        <!-- <li><span>号码查询</span></li> -->
+        <!-- <li><span>系统公告</span></li> -->
+        <!-- <li><span>文件下载</span></li> -->
+        <!-- <li><span>支持与帮助</span></li> -->
         <li><span>{{name}}</span></li>
         <li><span @click="logOut">退出</span></li>
     </ul>

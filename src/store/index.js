@@ -8,10 +8,10 @@ const debug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store({
   modules: {},
   state: {
-    name: ''
+    name: '' || localStorage.getItem("name")
   },
   mutations: {
-    username(state, data) {
+    name(state, data) {
       state.name = data
     }
   },

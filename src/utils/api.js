@@ -70,6 +70,7 @@ export function clearLocal() {
   localStorage.removeItem('username')
   localStorage.removeItem('groupCode')
   localStorage.removeItem('token')
+  localStorage.removeItem('name')
 }
 
 export function login(opt, fn) {

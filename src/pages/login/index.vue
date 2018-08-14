@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <img src="../../assets/homesli1.jpg" alt="" width="100%">
+    <img src="../../assets/homesli1-min.jpg" alt="背景图" width="100%">
     <div class="title">
         <h2>平台介绍</h2>
         <p>
@@ -118,13 +118,13 @@ export default {
         //a为真表示校验通过
         if (a) {
           login(this.logInfo, res => {
-            if (res.data.code === "1003") {
-              this.prompt = "错误的用户名或密码";
-              return;
-            }
             if (res.status === 0) {
               e.preventDefault();
               this.prompt = "登录失败,请重试!";
+              return;
+            }
+            if (res.data.code === "1003") {
+              this.prompt = "错误的用户名或密码!";
               return;
             }
             let data = res.data.data;
@@ -132,8 +132,9 @@ export default {
             localStorage.setItem("username", data.username);
             localStorage.setItem("groupCode", data.groupInfo.groupCode);
             localStorage.setItem("token", data.token);
+            localStorage.setItem("name", data.name);
 
-            this.$store.commit("username", data.name);
+            this.$store.commit("name", data.name);
 
             this.$router.push("/");
           });
