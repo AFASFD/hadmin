@@ -8,8 +8,8 @@
     <router-link to="/"></router-link>
     <ul class="right">
         <li><router-link to="/"><span @click="emitSlidebar('首页')">首页</span></router-link></li>
-        <!-- <li><span>号码查询</span></li> -->
-        <!-- <li><span>系统公告</span></li> -->
+        <li><router-link to="/numbermanagement"><span @click="emitSlidebar('资产管理>>号码管理')">号码查询</span></router-link></li>
+        <li><span>系统公告</span></li>
         <!-- <li><span>文件下载</span></li> -->
         <!-- <li><span>支持与帮助</span></li> -->
         <li><span>{{name}}</span></li>
@@ -29,16 +29,19 @@ export default {
   methods: {
     logOut() {
       let username = localStorage.getItem("username");
-      logout(
-        {
-          username: username
-        },
-        res => {
-          console.log(res);
-          clearLocal();
-          location.reload();
-        }
-      );
+      try {
+        logout(
+          {
+            username: username
+          },
+          res => {
+            console.log(res);
+          }
+        );
+      } finally {
+        clearLocal();
+        location.reload();
+      }
     },
     emitSlidebar(str) {
       window.eventHub.emit("clickslidebar", str);

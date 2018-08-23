@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "Content",
   data() {
     return {
       position: "首页",

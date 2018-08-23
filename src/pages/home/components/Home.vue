@@ -37,14 +37,14 @@
           <div class="charts-warp clearfix">
             <div class="chart">
                 <h3>
-                  <img src="../../../assets/sy2.png" alt="">
+                  <img src="../../../assets/sy2.png" alt="" width="24" height="24">
                     成员状态趋势
                 </h3>
                 <div id="peopleTrendChart" style="width: 500px;height:250px;"></div>
             </div>
             <div class="chart">
                 <h3>
-                  <img src="../../../assets/sy2.png" alt="">
+                  <img src="../../../assets/sy2.png" alt="" width="24" height="24">
                     成员状态情况
                 </h3>
                 <div id="peopleSituationChart" style="width: 100%;height:250px;"></div>
@@ -56,14 +56,14 @@
           <div class="charts-warp clearfix">
             <div class="chart">
                 <h3>
-                    <img src="../../../assets/sy3.png" alt="">
+                    <img src="../../../assets/sy3.png" alt="" width="24" height="24">
                     近期费用趋势
                 </h3>
                 <div id="costTrendChart" style="width: 100%;height:250px;"></div>
             </div>
             <div class="chart">
                 <h3>
-                    <img src="../../../assets/sy4.png" alt="">
+                    <img src="../../../assets/sy4.png" alt="" width="24" height="24">
                     06月费用占比
                 </h3>
                 <div id="costRatioChart" style="width: 100%;height:250px;">
@@ -360,7 +360,7 @@ export default {
             stack: "总量",
             smooth: true,
             areaStyle: { normal: {} },
-            data: [320, 332, 301, 334, 390, 330, 320]
+            data: [320, 332, 301, 334, 390, 330, 520]
           },
           {
             name: "停机",

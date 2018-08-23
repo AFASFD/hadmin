@@ -34,132 +34,133 @@ import LogIn from '@/pages/login/index'
 Vue.use(Router)
 
 let router = new Router({
+  // mode: 'history',
   routes: [{
-      path: '/',
-      component: Web,
-      children: [{
-          path: '',
-          component: Home
-        },
-        {
-          path: '/numbermanagement',
-          component: NumberManagement
-        },
-        {
-          path: '/statemanagement',
-          component: StateManagement
-        },
-        {
-          path: '/functionmanagement',
-          component: FunctionManagement
-        },
-        {
-          path: '/apnmanagement',
-          component: APNManagement
-        },
-        {
-          path: '/setmealmanagement',
-          component: SetMealManagement
-        },
-        {
-          path: '/packageprocess',
-          component: PackageProcess
-        },
-        {
-          path: '/flowamanagement',
-          component: FlowaManagement
-        },
-        {
-          path: '/flowbmanagement',
-          component: FlowbManagement
-        },
-        {
-          path: '/orderinquiry',
-          component: OrderInquiry
-        },
-        {
-          path: '/flowinquiry',
-          component: FlowInquiry
-        },
-        {
-          path: '/internationalroam',
-          component: InternationalRoam
-        },
-        {
-          path: '/cardmanagement',
-          component: CardManagement
-        },
-        {
-          path: '/companybill',
-          component: CompanyBill
-        },
-        {
-          path: '/memberbill',
-          component: MemberBill
-        },
-        {
-          path: '/numberrecharge',
-          component: NumberRecharge
-        },
-        {
-          path: '/ability',
-          component: Ability
-        },
-        {
-          path: '/dailyrecord',
-          component: DailyRecord
-        },
-        {
-          path: '/membercount',
-          component: MemberCount
-        },
-        {
-          path: '/setmealcount',
-          component: SetMealCount
-        },
-        {
-          path: '/flowcount',
-          component: FlowCount
-        },
-        {
-          path: '/flowsharecount',
-          component: FlowShareCount
-        },
-        {
-          path: '/workorder',
-          component: WorkOrder
-        },
-        {
-          path: '/messagesend',
-          component: MessageSend
-        },
-        {
-          path: '/rolemanagement',
-          component: RoleManagement
-        },
-        {
-          path: '/departmentalmanagement',
-          component: DepartmentalManagement
-        },
-        {
-          path: '/usermanagement',
-          component: UserManagement
-        },
-        {
-          path: '/operationlog',
-          component: OperationLog
-        }
-      ]
+    path: '/',
+    component: Web,
+    children: [{
+      path: '',
+      component: Home
     },
     {
-      path: '/login',
-      component: LogIn
+      path: '/numbermanagement',
+      component: NumberManagement
+    },
+    {
+      path: '/statemanagement',
+      component: StateManagement
+    },
+    {
+      path: '/functionmanagement',
+      component: FunctionManagement
+    },
+    {
+      path: '/apnmanagement',
+      component: APNManagement
+    },
+    {
+      path: '/setmealmanagement',
+      component: SetMealManagement
+    },
+    {
+      path: '/packageprocess',
+      component: PackageProcess
+    },
+    {
+      path: '/flowamanagement',
+      component: FlowaManagement
+    },
+    {
+      path: '/flowbmanagement',
+      component: FlowbManagement
+    },
+    {
+      path: '/orderinquiry',
+      component: OrderInquiry
+    },
+    {
+      path: '/flowinquiry',
+      component: FlowInquiry
+    },
+    {
+      path: '/internationalroam',
+      component: InternationalRoam
+    },
+    {
+      path: '/cardmanagement',
+      component: CardManagement
+    },
+    {
+      path: '/companybill',
+      component: CompanyBill
+    },
+    {
+      path: '/memberbill',
+      component: MemberBill
+    },
+    {
+      path: '/numberrecharge',
+      component: NumberRecharge
+    },
+    {
+      path: '/ability',
+      component: Ability
+    },
+    {
+      path: '/dailyrecord',
+      component: DailyRecord
+    },
+    {
+      path: '/membercount',
+      component: MemberCount
+    },
+    {
+      path: '/setmealcount',
+      component: SetMealCount
+    },
+    {
+      path: '/flowcount',
+      component: FlowCount
+    },
+    {
+      path: '/flowsharecount',
+      component: FlowShareCount
+    },
+    {
+      path: '/workorder',
+      component: WorkOrder
+    },
+    {
+      path: '/messagesend',
+      component: MessageSend
+    },
+    {
+      path: '/rolemanagement',
+      component: RoleManagement
+    },
+    {
+      path: '/departmentalmanagement',
+      component: DepartmentalManagement
+    },
+    {
+      path: '/usermanagement',
+      component: UserManagement
+    },
+    {
+      path: '/operationlog',
+      component: OperationLog
     }
+    ]
+  },
+  {
+    path: '/login',
+    component: LogIn
+  }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  let isLogin = localStorage.getItem('username')
+  let isLogin = localStorage.getItem('token')
   if (isLogin) {
     if (to.path === '/login') {
       next('/')

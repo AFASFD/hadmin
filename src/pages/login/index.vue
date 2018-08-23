@@ -11,7 +11,7 @@
         <form id="logform">
             <ul>
                 <li>
-                    <label>账号:<input type="text" name="username" v-model="logInfo.username"></label>
+                    <label>账号:<input type="text" name="username" v-model="logInfo.username" autocomplete="off"></label>
                 </li>
                 <li>
                     <label>密码:<input type="password" name="password" v-model="logInfo.password"></label>

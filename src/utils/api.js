@@ -17,11 +17,11 @@ axios.interceptors.request.use(function (config) {
 
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
-  // 对响应数据做点什么
+  // token失效
   if (response.data.code === '1001') {
     alert('验签失败，您所传递的令牌已失效')
     clearLocal()
-    location.reload()
+    router.push('/login')
   }
   return response
 }, function (err) {
@@ -55,7 +55,7 @@ axios.interceptors.response.use(function (response) {
   })
 })
 
-export function getLocal() {
+export function getLocal () {
   let username = localStorage.getItem('username')
   let groupCode = localStorage.getItem('groupCode')
   let token = localStorage.getItem('token')
@@ -66,21 +66,21 @@ export function getLocal() {
   return obj
 }
 
-export function clearLocal() {
+export function clearLocal () {
   localStorage.removeItem('username')
   localStorage.removeItem('groupCode')
   localStorage.removeItem('token')
   localStorage.removeItem('name')
 }
 
-export function login(opt, fn) {
+export function login (opt, fn) {
   axios.post('/admin/login', opt).then((res) => {
     console.log(res)
     fn && fn(res)
   })
 }
 
-export function logout(opt, fn) {
+export function logout (opt, fn) {
   axios.get('/admin/logout', {
     params: opt
   }).then((res) => {
@@ -88,7 +88,7 @@ export function logout(opt, fn) {
   })
 }
 
-export function group(opt, fn) {
+export function group (opt, fn) {
   axios.get('/action/group', {
     params: opt
   }).then((res) => {
@@ -96,7 +96,7 @@ export function group(opt, fn) {
   })
 }
 
-export function member(opt, fn) {
+export function member (opt, fn) {
   axios.get('/action/member', {
     params: opt
   }).then((res) => {
