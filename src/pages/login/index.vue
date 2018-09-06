@@ -2,10 +2,10 @@
   <div class="login">
     <img src="../../assets/homesli1-min.jpg" alt="背景图" width="100%">
     <div class="title">
-        <h2>平台介绍</h2>
-        <p>
-            广东物联云平台是面向广东物联网集团客户，提供对物联卡的资产管理、资费计划、账务缴费和安全管理服务的连接管理云平台。集团客户可通过网页访问直接使用平台，也可通过平台开放的API接口与企业应用进行对接集成。
-        </p>
+        <h2>智能电表云平台</h2>
+        <!-- <p>
+            智能电表云平台
+        </p> -->
     </div>
     <div class="form-wrap">
         <form id="logform">
@@ -118,8 +118,8 @@ export default {
         //a为真表示校验通过
         if (a) {
           login(this.logInfo, res => {
+            e.preventDefault();
             if (res.status === 0) {
-              e.preventDefault();
               this.prompt = "登录失败,请重试!";
               return;
             }
@@ -173,21 +173,21 @@ export default {
   }
   .title {
     position: absolute;
-    left: 7%;
-    top: 180px;
+    left: 9%;
+    top: 270px;
     width: 400px;
     h2 {
       line-height: 64px;
-      font-size: 40px;
+      font-size: 50px;
       font-weight: 400;
       color: #fff;
     }
-    p {
-      margin-top: 30px;
-      font-size: 16px;
-      line-height: 36px;
-      color: #fff;
-    }
+    // p {
+    //   margin-top: 30px;
+    //   font-size: 16px;
+    //   line-height: 36px;
+    //   color: #fff;
+    // }
   }
   .form-wrap {
     padding-top: 20px;

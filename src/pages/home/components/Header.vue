@@ -1,9 +1,9 @@
 <template>
   <div class="header clearfix">
     <ul class="left">
-        <li><img src="../../../assets/logobai.png" alt=""></li>
+        <!-- <li><img src="../../../assets/logobai.png" alt=""></li> -->
         <li><img src="../../../assets/qylogo.png" alt=""></li>
-        <li>政企客户部测试集团</li>
+        <li>智能电表云平台</li>
     </ul>
     <router-link to="/"></router-link>
     <ul class="right">
@@ -38,7 +38,10 @@ export default {
             console.log(res);
           }
         );
-      } finally {
+      }catch(e) {
+        //
+      } 
+      finally {
         clearLocal();
         location.reload();
       }
@@ -70,11 +73,11 @@ export default {
   line-height: 60px;
   .left {
     float: left;
-    :nth-child(2) {
+    :nth-child(1) {
       background: url("../../../assets/shubg.png") 0 center no-repeat;
       margin-right: 13px;
     }
-    :nth-child(3) {
+    :nth-child(2) {
       background: url("../../../assets/shubg.png") 0 center no-repeat;
       padding-left: 22px;
       font-size: 18px;

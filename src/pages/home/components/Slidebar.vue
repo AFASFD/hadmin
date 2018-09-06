@@ -66,7 +66,7 @@
           <el-menu-item index="/membercount" @click="emitSlidebar('统计报表>>成员统计')">成员统计</el-menu-item>
           <el-menu-item index="/setmealcount" @click="emitSlidebar('统计报表>>套餐统计')">套餐统计</el-menu-item>
           <el-menu-item index="/flowcount" @click="emitSlidebar('统计报表>>流量统计')">流量统计</el-menu-item>
-          <el-menu-item index="/flowsharecount" @click="emitSlidebar('统计报表>>流量共享统计')">流量共享统计</el-menu-item>
+          <!-- <el-menu-item index="/flowsharecount" @click="emitSlidebar('统计报表>>流量共享统计')">流量共享统计</el-menu-item> -->
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="7">

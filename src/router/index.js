@@ -22,7 +22,7 @@ import DailyRecord from '@/pages/dailyRecord/index'
 import MemberCount from '@/pages/memberCount/index'
 import SetMealCount from '@/pages/setmealCount/index'
 import FlowCount from '@/pages/flowCount/index'
-import FlowShareCount from '@/pages/flowShareCount/index'
+// import FlowShareCount from '@/pages/flowShareCount/index'
 import WorkOrder from '@/pages/workOrder/index'
 import MessageSend from '@/pages/messageSend/index'
 import RoleManagement from '@/pages/roleManagement/index'
@@ -122,10 +122,10 @@ let router = new Router({
       path: '/flowcount',
       component: FlowCount
     },
-    {
-      path: '/flowsharecount',
-      component: FlowShareCount
-    },
+    // {
+    //   path: '/flowsharecount',
+    //   component: FlowShareCount
+    // },
     {
       path: '/workorder',
       component: WorkOrder

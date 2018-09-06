@@ -127,41 +127,22 @@
                     <div class="chart">
                         <h3 class="title">
                             <img src="../../assets/sy2.png" alt="">
-                            成员状态月趋势
+                            流量使用月趋势
                         </h3>
                         <div id="memberMonthTrend" style="width: 100%;height: 250px;"></div>
                     </div>
                     <div class="chart">
                         <h3 class="title">
-                            <img src="../../assets/sy2.png" alt="">
-                            成员状态日趋势
+                            <img src="../../assets/sy4.png" alt="">
+                            流量使用日趋势
                         </h3>
                         <div id="memberDayTrend" style="width: 100%;height: 250px;"></div>
                     </div>
                     <div class="chart">
                         <h3 class="title clearfix">
                             <div class="left">
-                                <img src="../../assets/sy2.png" alt="">
-                                各种状态占比
-                            </div>
-                            <div class="right">
-                                <el-select v-model="avalue" placeholder="选择月份">
-                                  <el-option
-                                    v-for="item in aoptions"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
-                                  </el-option>
-                                </el-select>
-                            </div>
-                        </h3>
-                        <div id="memberScale" style="width: 100%;height: 250px;"></div>
-                    </div>
-                    <div class="chart">
-                        <h3 class="title clearfix">
-                            <div class="left">
-                                <img src="../../assets/sy2.png" alt="">
-                                各种状态占比
+                                <img src="../../assets/sy4.png" alt="">
+                                套餐流量使用top
                             </div>
                             <div class="right">
                                 <el-select v-model="bvalue" placeholder="选择月份">
@@ -195,6 +176,25 @@
                           </div>
                         </div>
                     </div>
+                    <div class="chart">
+                        <h3 class="title clearfix">
+                            <div class="left">
+                                <img src="../../assets/sy3.png" alt="">
+                                各类套餐办理数占比
+                            </div>
+                            <div class="right">
+                                <el-select v-model="avalue" placeholder="选择月份">
+                                  <el-option
+                                    v-for="item in aoptions"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                                  </el-option>
+                                </el-select>
+                            </div>
+                        </h3>
+                        <div id="memberTop" style="width: 100%;height: 250px;"></div>
+                    </div>
                 </div>
             </div>
         </el-tab-pane>
@@ -226,45 +226,45 @@ export default {
       aoptions: [
         {
           value: "选项1",
-          label: "黄金糕"
+          label: "1"
         },
         {
           value: "选项2",
-          label: "双皮奶"
+          label: "2"
         },
         {
           value: "选项3",
-          label: "蚵仔煎"
+          label: "3"
         },
         {
           value: "选项4",
-          label: "龙须面"
+          label: "4"
         },
         {
           value: "选项5",
-          label: "北京烤鸭"
+          label: "5"
         }
       ],
       boptions: [
         {
           value: "选项1",
-          label: "黄金糕"
+          label: "1"
         },
         {
           value: "选项2",
-          label: "双皮奶"
+          label: "2"
         },
         {
           value: "选项3",
-          label: "蚵仔煎"
+          label: "3"
         },
         {
           value: "选项4",
-          label: "龙须面"
+          label: "4"
         },
         {
           value: "选项5",
-          label: "北京烤鸭"
+          label: "5"
         }
       ],
       avalue: "",
@@ -281,7 +281,7 @@ export default {
         setTimeout(() => {
           this.setMonthTrend();
           this.setDayTrend();
-          this.setMemberScale();
+          this.setMemberTop();
           this.setMemberHealth();
         }, 1);
       }
@@ -396,15 +396,111 @@ export default {
     setDayTrend() {
       var dayTrend = echarts.init(document.getElementById("memberDayTrend"));
       dayTrend.setOption({
+        title: {
+          text: "成员数",
+          textStyle: {
+            color: "#000",
+            fontSize: "12"
+          }
+        },
         tooltip: {
           trigger: "axis",
           axisPointer: {
-            // 坐标轴指示器，坐标轴触发有效
-            type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+            type: "cross",
+            label: {
+              backgroundColor: "#6a7985"
+            }
           }
         },
         legend: {
-          data: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"]
+          data: ["正使用", "测试期", "沉默期", "预约销户", "停机"],
+          x: "right",
+          x: "right",
+          textStyle: {
+            fontSize: "12"
+          },
+          itemWidth: 20,
+          itemHeight: 10,
+          itemGap: 10,
+          icon: "rect"
+        },
+        grid: {
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true
+        },
+        xAxis: [
+          {
+            type: "category",
+            boundaryGap: false,
+            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+          }
+        ],
+        yAxis: [
+          {
+            type: "value"
+          }
+        ],
+        series: [
+          {
+            name: "正使用",
+            type: "line",
+            stack: "总量",
+            areaStyle: { normal: {} },
+            smooth: true,
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: "测试期",
+            type: "line",
+            stack: "总量",
+            areaStyle: { normal: {} },
+            smooth: true,
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: "沉默期",
+            type: "line",
+            stack: "总量",
+            areaStyle: { normal: {} },
+            smooth: true,
+            data: [150, 232, 201, 154, 190, 330, 410]
+          },
+          {
+            name: "预约销户",
+            type: "line",
+            stack: "总量",
+            areaStyle: { normal: {} },
+            smooth: true,
+            data: [320, 332, 301, 334, 390, 330, 320]
+          },
+          {
+            name: "停机",
+            type: "line",
+            stack: "总量",
+            areaStyle: { normal: {} },
+            smooth: true,
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
+        ]
+      });
+    },
+    setMemberTop() {
+      var ms = echarts.init(document.getElementById("memberTop"));
+      ms.setOption({
+        title: {
+          text: "流量使用Top",
+          textStyle: {
+            color: "#000",
+            fontSize: "12"
+          }
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow"
+          }
         },
         grid: {
           left: "3%",
@@ -413,102 +509,40 @@ export default {
           containLabel: true
         },
         xAxis: {
-          type: "category",
-          data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
-        },
-        yAxis: {
-          type: "value"
-        },
-        series: [
-          {
-            name: "直接访问",
-            type: "bar",
-            stack: "总量",
-            label: {
-              normal: {
-                show: true,
-                position: "insideRight"
-              }
-            },
-            data: [320, 302, 301, 334, 390, 330, 320]
-          },
-          {
-            name: "邮件营销",
-            type: "bar",
-            stack: "总量",
-            label: {
-              normal: {
-                show: true,
-                position: "insideRight"
-              }
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: "联盟广告",
-            type: "bar",
-            stack: "总量",
-            label: {
-              normal: {
-                show: true,
-                position: "insideRight"
-              }
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: "视频广告",
-            type: "bar",
-            stack: "总量",
-            label: {
-              normal: {
-                show: true,
-                position: "insideRight"
-              }
-            },
-            data: [150, 212, 201, 154, 190, 330, 410]
-          },
-          {
-            name: "搜索引擎",
-            type: "bar",
-            stack: "总量",
-            label: {
-              normal: {
-                show: true,
-                position: "insideRight"
-              }
-            },
-            data: [820, 832, 901, 934, 1290, 1330, 1320]
-          }
-        ]
-      });
-    },
-    setMemberScale() {
-      var ms = echarts.init(document.getElementById("memberScale"));
-      ms.setOption({
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow"
-          }
-        },
-        xAxis: {
-          type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-        },
-        yAxis: {
           type: "value",
-          axisLabel: {
-            show: true,
-            interval: "auto",
-            formatter: "{value} %"
-          },
-          show: true
+          boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+          type: "category",
+          data: [
+            "中国",
+            "中国2",
+            "中国3",
+            "中国4",
+            "中国5",
+            "中国6",
+            "中国7",
+            "中国8",
+            "中国9",
+            "中国10"
+          ]
         },
         series: [
           {
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: "bar"
+            name: "成员流量使用",
+            type: "bar",
+            data: [
+              131744,
+              131744,
+              131744,
+              131744,
+              131744,
+              131744,
+              131744,
+              131744,
+              131744,
+              131744
+            ]
           }
         ]
       });
