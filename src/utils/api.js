@@ -100,6 +100,7 @@ export function member (opt, fn) {
   axios.get('/action/member', {
     params: opt
   }).then((res) => {
+    console.log(res)
     fn && fn(res)
   })
 }
