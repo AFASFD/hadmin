@@ -46,7 +46,7 @@
                 <el-table
                     ref="multipleTable"
                     border
-                    :data="tableData3"
+                    :data="tableData"
                     tooltip-effect="dark"
                     style="width: 100%"
                     @selection-change="handleSelectdm">
@@ -55,19 +55,24 @@
                     width="55">
                     </el-table-column>
                     <el-table-column
-                    label="日期"
-                    width="120">
+                    label="ID">
                     <template slot-scope="scope">{{ scope.row.date }}</template>
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="姓名"
-                    width="120">
+                    prop=""
+                    label="部门编号">
                     </el-table-column>
                     <el-table-column
-                    prop="address"
-                    label="地址"
-                    show-overflow-tooltip>
+                    prop=""
+                    label="企业ID">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="部门名称">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="上级部门ID">
                     </el-table-column>
                     <el-table-column label="操作">
                     <template slot-scope="scope">
@@ -86,7 +91,7 @@
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page.sync="currentPage3"
+                    :current-page.sync="currentPage1"
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000">
@@ -100,31 +105,48 @@
             </h3>
             <div class="table">
                 <el-table
-                    :data="tableData"
+                    :data="tableData2"
                     border
                     style="width: 100%">
                     <el-table-column
-                    type="index"
-                    label="序号"
-                    width="50">
+                    prop=""
+                    label="手机号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="资产名称">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="设备编号">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="资产类型">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="状态">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="备注">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="状态">
+                    </el-table-column>
+                    <el-table-column label="操作">
+                      <template slot-scope="scope">
+                          <el-button
+                          size="mini"
+                          @click="handleEdit(scope.$index, scope.row)">修改</el-button>
+                          <el-button
+                          size="mini"
+                          type="danger"
+                          @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                      </template>
                     </el-table-column>
                 </el-table>
             </div>
@@ -132,7 +154,7 @@
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page.sync="currentPage3"
+                    :current-page.sync="currentPage2"
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000">
@@ -167,19 +189,35 @@
                     width="55">
                     </el-table-column>
                     <el-table-column
-                    label="日期"
-                    width="120">
+                    label="ID">
                     <template slot-scope="scope">{{ scope.row.date }}</template>
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="姓名"
-                    width="120">
+                    prop=""
+                    label="类型名称">
                     </el-table-column>
                     <el-table-column
-                    prop="address"
-                    label="地址"
-                    show-overflow-tooltip>
+                    prop=""
+                    label="类型编码">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="类型状态">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="企业ID">
+                    </el-table-column>
+                    <el-table-column label="操作">
+                      <template slot-scope="scope">
+                          <el-button
+                          size="mini"
+                          @click="handleEdit(scope.$index, scope.row)">修改</el-button>
+                          <el-button
+                          size="mini"
+                          type="danger"
+                          @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                      </template>
                     </el-table-column>
                 </el-table>
             </div>
@@ -211,21 +249,12 @@ export default {
       editData: {},
       selectdm: [],
       selectpt: [],
-      tableData3: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        },
-        {
-          number: "2",
-          name: "王小虎2",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
-      currentPage4: 1,
+      tableData: [],
+      tableData2: [],
+      tableData3: [],
+      currentPage1: 1,
+      currentPage2: 1,
+      currentPage3: 1,
       activeName: "first"
     };
   },

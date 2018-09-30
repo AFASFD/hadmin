@@ -34,22 +34,44 @@
                     border
                     style="width: 100%">
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="月份">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="套餐编号">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="套餐名称">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="套餐类型">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="订购总数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="新增订购数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="本月订购数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="生效总数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="新增生效数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="本月失效数">
                     </el-table-column>
                 </el-table>
             </div>
@@ -57,7 +79,7 @@
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page.sync="currentPage3"
+                    :current-page.sync="mCurrentPage"
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000">
@@ -97,22 +119,44 @@
                     border
                     style="width: 100%">
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="日期">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="套餐编号">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="套餐名称">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="套餐类型">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="订购总数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="新增订购数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="本月订购数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="生效总数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="新增生效数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="本月失效数">
                     </el-table-column>
                 </el-table>
             </div>
@@ -120,7 +164,7 @@
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page.sync="currentPage3"
+                    :current-page.sync="dCurrentPage"
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000">
@@ -219,15 +263,9 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
-      currentPage4: 1,
+      tableData: [],
+      mCurrentPage: 1,
+      dCurrentPage: 1,
       activeName: "first",
       aoptions: [
         {

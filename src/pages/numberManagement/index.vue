@@ -38,46 +38,30 @@
                       border
                       style="width: 100%">
                       <el-table-column
-                        prop="msisdn"
-                        label="号码"
-                        width="130">
-                        <template slot-scope="scope">
-                          <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                        </template>
+                        prop=""
+                        label="资费类型"
+                        width="130"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="iccid"
-                        label="ICCID"
-                        width="200">
+                        prop=""
+                        label="本月总套餐资源"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imsi"
-                        label="IMSI"
-                        width="150">
+                        prop=""
+                        label="本月已用资源"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imei"
-                        label="IMEI"
-                        width="100">
+                        prop=""
+                        label="本月剩余套餐内资源"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="status"
-                        label="生命周期"
-                        width="80">
-                      </el-table-column>
-                      <el-table-column
-                        prop="openTime"
-                        label="开户时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="statusTime"
-                        label="变更时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="actTime"
-                        label="激活时间">
+                        prop=""
+                        label="本月套餐外使用资源"
+                        :formatter="formatNbr">
                       </el-table-column>
                     </el-table>
                     <h3 class="title">
@@ -91,46 +75,45 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                              prop="msisdn"
-                              label="号码"
-                              width="130">
-                              <template slot-scope="scope">
-                                <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                              </template>
+                              prop=""
+                              label="序号"
+                              width="50"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="iccid"
-                              label="ICCID"
-                              width="200">
+                              prop=""
+                              label="套餐名称"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="imsi"
-                              label="IMSI"
-                              width="150">
+                              prop=""
+                              label="套餐内免费资源（MB）"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="imei"
-                              label="IMEI"
-                              width="100">
+                              prop=""
+                              label="已用资源（MB）"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="status"
-                              label="生命周期"
-                              width="80">
+                              prop=""
+                              label="剩余资源（MB）"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="openTime"
-                              label="开户时间"
-                              width="170">
+                              prop=""
+                              label="APN名称"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="statusTime"
-                              label="变更时间"
-                              width="170">
+                              prop=""
+                              label="套餐生效时间"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="actTime"
-                              label="激活时间">
+                              prop=""
+                              label="套餐失效时间"
+                              :formatter="formatStr">
                             </el-table-column>
                           </el-table>
                         </el-tab-pane>
@@ -140,46 +123,47 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                              prop="msisdn"
-                              label="号码"
-                              width="130">
-                              <template slot-scope="scope">
-                                <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                              </template>
+                              prop=""
+                              label="序号"
+                              width="50"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="iccid"
-                              label="ICCID"
-                              width="200">
+                              prop=""
+                              label="编号"
+                              width="50"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="imsi"
-                              label="IMSI"
-                              width="150">
+                              prop=""
+                              label="套餐名称"
+                              width="150"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="imei"
-                              label="IMEI"
-                              width="100">
+                              prop=""
+                              label="总资源(条)"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="status"
-                              label="生命周期"
-                              width="80">
+                              prop=""
+                              label="已用"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="openTime"
-                              label="开户时间"
-                              width="170">
+                              prop=""
+                              label="剩余"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="statusTime"
-                              label="变更时间"
-                              width="170">
+                              prop=""
+                              label="套餐生效时间"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="actTime"
-                              label="激活时间">
+                              prop=""
+                              label="套餐失效时间"
+                              :formatter="formatStr">
                             </el-table-column>
                           </el-table>
                         </el-tab-pane>
@@ -189,46 +173,47 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                              prop="msisdn"
-                              label="号码"
-                              width="130">
-                              <template slot-scope="scope">
-                                <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                              </template>
+                              prop=""
+                              label="序号"
+                              width="50"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="iccid"
-                              label="ICCID"
-                              width="200">
+                              prop=""
+                              label="编号"
+                              width="50"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="imsi"
-                              label="IMSI"
-                              width="150">
+                              prop=""
+                              label="套餐名称"
+                              width="150"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="imei"
-                              label="IMEI"
-                              width="100">
+                              prop=""
+                              label="总资源(Min)"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="status"
-                              label="生命周期"
-                              width="80">
+                              prop=""
+                              label="已用"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="openTime"
-                              label="开户时间"
-                              width="170">
+                              prop=""
+                              label="剩余"
+                              :formatter="formatNbr">
                             </el-table-column>
                             <el-table-column
-                              prop="statusTime"
-                              label="变更时间"
-                              width="170">
+                              prop=""
+                              label="套餐生效时间"
+                              :formatter="formatStr">
                             </el-table-column>
                             <el-table-column
-                              prop="actTime"
-                              label="激活时间">
+                              prop=""
+                              label="套餐失效时间"
+                              :formatter="formatStr">
                             </el-table-column>
                           </el-table>
                         </el-tab-pane>
@@ -245,46 +230,40 @@
                       border
                       style="width: 100%">
                       <el-table-column
-                        prop="msisdn"
-                        label="号码"
-                        width="130">
-                        <template slot-scope="scope">
-                          <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                        </template>
+                        prop=""
+                        label="月份"
+                        width="70"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="iccid"
-                        label="ICCID"
-                        width="200">
+                        prop=""
+                        label="通用APN已使用总流量"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imsi"
-                        label="IMSI"
-                        width="150">
+                        prop=""
+                        label="专用APN1已使用总流量"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imei"
-                        label="IMEI"
-                        width="100">
+                        prop=""
+                        label="专用APN2已使用总流量"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="status"
-                        label="生命周期"
-                        width="80">
+                        prop=""
+                        label="专用APN3已使用总流量"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="openTime"
-                        label="开户时间"
-                        width="170">
+                        prop=""
+                        label="专用APN4已使用总流量"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="statusTime"
-                        label="变更时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="actTime"
-                        label="激活时间">
+                        prop=""
+                        label="专用APN5已使用总流量"
+                        :formatter="formatNbr">
                       </el-table-column>
                     </el-table>
                 </el-tab-pane>
@@ -299,46 +278,24 @@
                       border
                       style="width: 100%">
                       <el-table-column
-                        prop="msisdn"
-                        label="号码"
-                        width="130">
-                        <template slot-scope="scope">
-                          <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                        </template>
+                        prop=""
+                        label="月份"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="iccid"
-                        label="ICCID"
-                        width="200">
+                        prop=""
+                        label="短信总条数"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imsi"
-                        label="IMSI"
-                        width="150">
+                        prop=""
+                        label="已发送短信条数"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imei"
-                        label="IMEI"
-                        width="100">
-                      </el-table-column>
-                      <el-table-column
-                        prop="status"
-                        label="生命周期"
-                        width="80">
-                      </el-table-column>
-                      <el-table-column
-                        prop="openTime"
-                        label="开户时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="statusTime"
-                        label="变更时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="actTime"
-                        label="激活时间">
+                        prop=""
+                        label="剩余短信条数"
+                        :formatter="formatNbr">
                       </el-table-column>
                     </el-table>
                 </el-tab-pane>
@@ -353,46 +310,24 @@
                       border
                       style="width: 100%">
                       <el-table-column
-                        prop="msisdn"
-                        label="号码"
-                        width="130">
-                        <template slot-scope="scope">
-                          <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                        </template>
+                        prop=""
+                        label="月份"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="iccid"
-                        label="ICCID"
-                        width="200">
+                        prop=""
+                        label="套餐通话总量"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imsi"
-                        label="IMSI"
-                        width="150">
+                        prop=""
+                        label="本月呼出时长"
+                        :formatter="formatNbr">
                       </el-table-column>
                       <el-table-column
-                        prop="imei"
-                        label="IMEI"
-                        width="100">
-                      </el-table-column>
-                      <el-table-column
-                        prop="status"
-                        label="生命周期"
-                        width="80">
-                      </el-table-column>
-                      <el-table-column
-                        prop="openTime"
-                        label="开户时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="statusTime"
-                        label="变更时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="actTime"
-                        label="激活时间">
+                        prop=""
+                        label="本月呼入时长"
+                        :formatter="formatNbr">
                       </el-table-column>
                     </el-table>
                 </el-tab-pane>
@@ -406,46 +341,29 @@
                       border
                       style="width: 100%">
                       <el-table-column
-                        prop="msisdn"
-                        label="号码"
-                        width="130">
-                        <template slot-scope="scope">
-                          <span class="number" @click="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
-                        </template>
+                        prop=""
+                        label="APN名称"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="iccid"
-                        label="ICCID"
-                        width="200">
+                        prop=""
+                        label="APN类型"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="imsi"
-                        label="IMSI"
-                        width="150">
+                        prop=""
+                        label="ServiceCode名称"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="imei"
-                        label="IMEI"
-                        width="100">
+                        prop=""
+                        label="ServiceCode"
+                        :formatter="formatStr">
                       </el-table-column>
                       <el-table-column
-                        prop="status"
-                        label="生命周期"
-                        width="80">
-                      </el-table-column>
-                      <el-table-column
-                        prop="openTime"
-                        label="开户时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="statusTime"
-                        label="变更时间"
-                        width="170">
-                      </el-table-column>
-                      <el-table-column
-                        prop="actTime"
-                        label="激活时间">
+                        prop=""
+                        label="ServiceCode使用量(MB)"
+                        :formatter="formatNbr">
                       </el-table-column>
                     </el-table>
                 </el-tab-pane>
@@ -507,7 +425,6 @@
           border
           style="width: 100%">
           <el-table-column
-            prop="msisdn"
             label="号码"
             width="130">
             <template slot-scope="scope">
@@ -517,37 +434,42 @@
           <el-table-column
             prop="iccid"
             label="ICCID"
-            width="200">
+            width="190"
+            :formatter="formatStr">
           </el-table-column>
           <el-table-column
             prop="imsi"
             label="IMSI"
-            width="150">
+            width="150"
+            :formatter="formatStr">
           </el-table-column>
           <el-table-column
             prop="imei"
             label="IMEI"
-            width="100">
+            :formatter="formatStr">
           </el-table-column>
           <el-table-column
             prop="status"
             label="生命周期"
-            width="80">
+            :formatter="formatStr">
           </el-table-column>
           <el-table-column
             prop="openTime"
             label="开户时间"
-            width="170">
+            width="170"
+            :formatter="formatStr">
           </el-table-column>
           <el-table-column
             prop="statusTime"
             label="变更时间"
-            width="170">
+            width="170"
+            :formatter="formatStr">
           </el-table-column>
-          <!-- <el-table-column
+          <el-table-column
             prop="actTime"
-            label="激活时间">
-          </el-table-column> -->
+            label="激活时间"
+            :formatter="formatStr">
+          </el-table-column>
         </el-table>
       </div>
       <div v-if="pageCount>0" class="pagination clearfix">
@@ -565,7 +487,7 @@
 <script>
 var echarts = require("echarts");
 import { member, getLocal } from "../../utils/api.js";
-import { formatDate } from "../../utils/formatdate.js";
+import { formatDate, formatStr, formatNbr } from "../../utils/format.js";
 
 export default {
   name: "NumberManagement",
@@ -607,6 +529,8 @@ export default {
     }
   },
   methods: {
+    formatStr: formatStr,
+    formatNbr: formatNbr,
     onSubmit() {
       if (this.formInline.iccid === "" && this.formInline.msisdn === "") {
         this.getMember("info.paged");
@@ -632,6 +556,7 @@ export default {
       setTimeout(() => {
         $(document).one("click", () => {
           this.isHidden = false;
+          this.activeName = "first";
         });
       }, 0);
       console.log(this.currentData);
@@ -639,6 +564,7 @@ export default {
     hiddenEdit() {
       console.log("yincang");
       this.isHidden = false;
+      this.activeName = "first";
     },
     handleClick() {
       console.log(1);
@@ -652,24 +578,26 @@ export default {
       };
       obj = Object.assign({}, obj, ls);
       member(obj, res => {
-        console.log(res);
         let data = res.data.data;
-        for (let i = 0; i < data.dataList.length; i++) {
-          data.dataList[i]["openTime"] = formatDate(
-            data.dataList[i]["openTime"]
-          );
-          data.dataList[i]["statusTime"] = formatDate(
-            data.dataList[i]["statusTime"]
-          );
+        console.log(data);
+        if (data) {
+          for (let i = 0; i < data.dataList.length; i++) {
+            data.dataList[i]["openTime"] = formatDate(
+              data.dataList[i]["openTime"]
+            );
+            data.dataList[i]["statusTime"] = formatDate(
+              data.dataList[i]["statusTime"]
+            );
+          }
+          this.tableData = data.dataList;
+          this.pageSize = parseInt(data.pageSize);
+          this.totalCount = parseInt(data.totalCount);
+          this.pageIndex = parseInt(data.pageIndex);
+          this.pageCount = parseInt(data.pageCount);
+          this.hasNext = data.hasNext;
+          this.hasPrev = data.hasPrev;
+          console.log(this.tableData);
         }
-        this.tableData = data.dataList;
-        this.pageSize = parseInt(data.pageSize);
-        this.totalCount = parseInt(data.totalCount);
-        this.pageIndex = parseInt(data.pageIndex);
-        this.pageCount = parseInt(data.pageCount);
-        this.hasNext = data.hasNext;
-        this.hasPrev = data.hasPrev;
-        console.log(this.tableData);
       });
     },
     inquiryMember(data) {
@@ -691,23 +619,25 @@ export default {
         delete data.iccid;
         obj = Object.assign({}, obj, data);
         member(obj, res => {
-          console.log(res);
           let data = res.data.data;
-          for (let i = 0; i < data.dataList.length; i++) {
-            data.dataList[i]["openTime"] = formatDate(
-              data.dataList[i]["openTime"]
-            );
-            data.dataList[i]["statusTime"] = formatDate(
-              data.dataList[i]["statusTime"]
-            );
+          console.log(data);
+          if (data) {
+            for (let i = 0; i < data.dataList.length; i++) {
+              data.dataList[i]["openTime"] = formatDate(
+                data.dataList[i]["openTime"]
+              );
+              data.dataList[i]["statusTime"] = formatDate(
+                data.dataList[i]["statusTime"]
+              );
+            }
+            this.tableData = data.dataList;
+            this.pageSize = parseInt(data.pageSize);
+            this.totalCount = parseInt(data.totalCount);
+            this.pageIndex = parseInt(data.pageIndex);
+            this.pageCount = parseInt(data.pageCount);
+            this.hasNext = data.hasNext;
+            this.hasPrev = data.hasPrev;
           }
-          this.tableData = data.dataList;
-          this.pageSize = parseInt(data.pageSize);
-          this.totalCount = parseInt(data.totalCount);
-          this.pageIndex = parseInt(data.pageIndex);
-          this.pageCount = parseInt(data.pageCount);
-          this.hasNext = data.hasNext;
-          this.hasPrev = data.hasPrev;
         });
       } else {
         console.log("单个查询");
@@ -720,7 +650,7 @@ export default {
           if (data) {
             data["openTime"] = formatDate(data["openTime"]);
             data["statusTime"] = formatDate(data["statusTime"]);
-            console.log(data)
+            console.log(data);
             this.tableData = [data];
           } else {
             this.tableData = [];
@@ -999,7 +929,7 @@ export default {
         text-align: center;
         padding: 10px 0;
         border-bottom: 1px solid #a0bdfd;
-        background: #FFFFFF; 
+        background: #ffffff;
         .close {
           cursor: pointer;
           float: right;

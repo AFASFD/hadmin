@@ -8,7 +8,7 @@
                     基本信息
                 </h3>
                 <ul class="clearfix">
-                    <li><span class='left'>共享池编号：</span><span>50114000007</span></li>
+                    <li><span class='left'>APN名称：</span><span>50114000007</span></li>
                     <li><span class='left'>总成员数：</span><span>2</span></li>
                     <li><span class='left'>组池成员数：</span><span>50114000007</span></li>
                 </ul>
@@ -55,22 +55,29 @@
                         width="50">
                         </el-table-column>
                         <el-table-column
-                        prop="number"
-                        label="预警号码"
-                        width="180">
+                        prop=""
+                        label="号码"
+                        width="130">
                         </el-table-column>
                         <el-table-column
-                        prop="name"
-                        label="预警名称"
-                        width="180">
+                        prop=""
+                        label="生命周期状态">
                         </el-table-column>
                         <el-table-column
-                        prop="content"
-                        label="预警内容">
+                        prop=""
+                        label="通用APN状态">
                         </el-table-column>
                         <el-table-column
-                        prop="handle"
-                        label="操作">
+                        prop=""
+                        label="开户时间">
+                        </el-table-column>
+                        <el-table-column
+                        prop=""
+                        label="激活时间">
+                        </el-table-column>
+                        <el-table-column
+                        prop=""
+                        label="策略功能">
                         </el-table-column>
                     </el-table>
                 </div>
@@ -86,7 +93,7 @@
                 </div>
             </div>
         </el-tab-pane>
-        <el-tab-pane label="CMIOTTEST" name="second">
+        <!-- <el-tab-pane label="CMIOTTEST" name="second">
             <div class="top">
                 <h3 class="title">
                     <img src="../../assets/option_log_list_icon.png" alt="">
@@ -170,7 +177,7 @@
                     </el-pagination>
                 </div>
             </div>
-        </el-tab-pane>
+        </el-tab-pane> -->
     </el-tabs>
   </div>
 </template>
@@ -184,14 +191,7 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
+      tableData: [],
       currentPage1: 1,
       currentPage2: 1,
       activeName: "first"

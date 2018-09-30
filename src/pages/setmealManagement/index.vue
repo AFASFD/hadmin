@@ -21,26 +21,28 @@
                     style="width: 100%">
                     <el-table-column
                     type="index"
-                    width="50"
-                    label="序号">
+                    label="序号"
+                    width="50">
                     </el-table-column>
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="套餐编号">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="套餐名称">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="套餐资源(MB)">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="资费(元)">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="可办状态">
                     </el-table-column>
                 </el-table>
             </div>
@@ -103,22 +105,53 @@
                     border
                     style="width: 100%">
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="生命周期状态">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="套餐名称">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="套餐编码">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="套餐类型">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="套餐通道(通向/定向)">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="套餐生效时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="套餐失效时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="套餐状态">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="总流量MB">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="已使用MB">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="剩余MB">
                     </el-table-column>
                 </el-table>
             </div>
@@ -146,14 +179,7 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
+      tableData: [],
       currentPage1: 1,
       currentPage2: 1,
       activeName: "first",

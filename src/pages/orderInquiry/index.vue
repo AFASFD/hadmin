@@ -60,21 +60,36 @@
                     label="序号">
                     </el-table-column>
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="订单类型">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="订单编号">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
+                    prop=""
+                    label="订单提交时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="订单结束时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="订单号码状态">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="办理途径">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
                     label="操作">
                     </el-table-column>
                 </el-table>
@@ -83,7 +98,7 @@
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page.sync="currentPage3"
+                    :current-page.sync="currentPage1"
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000">
@@ -145,21 +160,36 @@
                     label="序号">
                     </el-table-column>
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="订单类型">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="订单编号">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
+                    prop=""
+                    label="订单提交时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="订单结束时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="订单号码状态">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="办理途径">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
                     label="操作">
                     </el-table-column>
                 </el-table>
@@ -168,7 +198,7 @@
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page.sync="currentPage3"
+                    :current-page.sync="currentPage2"
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000">
@@ -184,19 +214,14 @@ export default {
   name: "OrderInquiry",
   data() {
     return {
+      value13: "",
       formInline: {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
-      currentPage4: 1,
+      tableData: [],
+      currentPage1: 1,
+      currentPage2: 1,
       activeName: "first"
     };
   },

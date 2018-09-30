@@ -24,22 +24,25 @@
                         border
                         style="width: 100%">
                         <el-table-column
-                        prop="number"
-                        label="预警号码"
-                        width="180"
+                        prop=""
+                        label="月份"
                         >
                         </el-table-column>
                         <el-table-column
-                        prop="name"
-                        label="预警名称"
+                        prop=""
+                        label="总费用(元)"
                         width="180">
                         </el-table-column>
                         <el-table-column
-                        prop="content"
-                        label="预警内容">
+                        prop=""
+                        label="企业代付(元)">
                         </el-table-column>
                         <el-table-column
-                        prop="handle"
+                        prop=""
+                        label="个人付费(元)">
+                        </el-table-column>
+                        <el-table-column
+                        prop=""
                         label="操作">
                         </el-table-column>
                     </el-table>
@@ -48,7 +51,7 @@
                     <el-pagination
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
-                        :current-page.sync="currentPage3"
+                        :current-page.sync="currentPage"
                         :page-size="100"
                         layout="prev, pager, next, jumper"
                         :total="1000">
@@ -56,7 +59,7 @@
                 </div>
             </div>
         </el-tab-pane>
-        <!-- <el-tab-pane label="可视化" name="second">
+        <el-tab-pane label="可视化" name="second">
           <div class="status">
             <h1 class="viewTitle">
               <b>
@@ -72,15 +75,34 @@
                 <div id="costTrend" style="width: 500px;height:250px;"></div>
               </div>
               <div class="chart">
-                  <h3>
-                    <img src="../../assets/sy3.png" alt="">
-                      07月费用占比
-                  </h3>
-                  <div id="peopleSituationChart" style="width: 100%;height:250px;"></div>
-              </div>
+                <h3>
+                    <img src="../../assets/sy4.png" alt="" width="24" height="24">
+                    08月费用占比
+                </h3>
+                <div id="costRatioChart" style="width: 100%;height:250px;">
+                  <div>
+                    <div class="r_out">
+                        <div class="r_in">
+                            <div class="r_c c1" style="height: 0%;"></div>
+                            <div class="r_num">70%</div>
+                        </div>
+                        <div class="c_t">企业代付</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="r_out">
+                        <div class="r_in">
+                            <div class="r_c c2" style="height: 0%;"></div>
+                            <div class="r_num">70%</div>
+                        </div>
+                        <div class="c_t">个人付费</div>
+                    </div>
+                  </div>
+                </div>
+            </div>
             </div>
           </div>
-        </el-tab-pane> -->
+        </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -96,15 +118,8 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
-      currentPage4: 1,
+      tableData: [],
+      currentPage: 1,
       activeName: "first",
       aname: "week"
     };
@@ -220,6 +235,20 @@ export default {
           }
         ]
       });
+    },
+    setCostRatioChart() {
+      $(".c1").animate(
+        {
+          height: "70%"
+        },
+        1000
+      );
+      $(".c2").animate(
+        {
+          height: "70%"
+        },
+        1000
+      );
     }
   },
   watch: {
@@ -227,6 +256,7 @@ export default {
       if (newvalue === "second") {
         setTimeout(() => {
           this.setCostTrend();
+          this.setCostRatioChart();
         }, 1);
       }
     }
@@ -249,10 +279,88 @@ export default {
       vertical-align: middle;
     }
   }
+  #costRatioChart {
+    padding: 10px 20px;
+  }
   .status {
     width: 1058px;
     margin-left: auto;
     margin-right: auto;
+    .r_out {
+      width: 200px;
+      height: 200px;
+      border: 8px solid #d9d9d9;
+      background: #fff;
+      box-shadow: 3px 3px 5px #bfbfbf;
+      -webkit-box-shadow: 3px 3px 5px #bfbfbf;
+      -moz-box-shadow: 3px 3px 5px #bfbfbf;
+      -ms-box-shadow: 3px 3px 5px #bfbfbf;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms_border-radius: 50%;
+      display: inline-block;
+      position: relative;
+    }
+
+    .r_out p {
+      position: absolute;
+      bottom: -50px;
+      color: #000;
+      text-align: center;
+      margin: 0 auto;
+      width: 100%;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+
+    .r_in {
+      width: 180px;
+      height: 180px;
+      border: 10px solid #fff;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms_border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .r_c {
+      width: 180px;
+      height: 180px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 0;
+    }
+
+    .c1 {
+      background: #fbad4c;
+    }
+
+    .c2 {
+      background: #87d7a5;
+    }
+
+    .r_num {
+      color: #404040;
+      font-size: 40px;
+      line-height: 1.5;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      margin-top: -25px;
+      text-align: center;
+      width: 100%;
+    }
+    .c_t {
+      width: 100%;
+      position: absolute;
+      top: 110%;
+      text-align: center;
+    }
     .viewTitle {
       width: 100%;
       margin-top: 9px;

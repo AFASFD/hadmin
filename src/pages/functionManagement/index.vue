@@ -68,29 +68,51 @@
             <div class="table">
                 <el-table
                     ref="multipleTable"
-                    :data="tableData3"
+                    :data="tableData"
                     tooltip-effect="dark"
                     style="width: 100%"
                     border
                     @selection-change="handleSelectionChange">
                     <el-table-column
                     type="selection"
-                    width="55">
+                    width="35">
                     </el-table-column>
                     <el-table-column
-                    label="日期"
-                    width="120">
-                    <template slot-scope="scope">{{ scope.row.date }}</template>
+                    label="号码"
+                    width="130">
+                        <template slot-scope="scope">
+                            <span class="number" @click.stop="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
+                        </template>
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="姓名"
-                    width="120">
+                    prop=""
+                    label="ICCID"
+                    :formatter="formatStr">
                     </el-table-column>
                     <el-table-column
-                    prop="address"
-                    label="地址"
-                    show-overflow-tooltip>
+                    prop=""
+                    label="IMEI"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="IMSI"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="开户时间"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="生命周期"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="GRPS状态"
+                    :formatter="formatStr">
                     </el-table-column>
                 </el-table>
             </div>
@@ -182,22 +204,41 @@
                     @selection-change="handleSelectionChange">
                     <el-table-column
                     type="selection"
-                    width="55">
+                    width="35">
                     </el-table-column>
                     <el-table-column
-                    label="日期"
-                    width="120">
-                    <template slot-scope="scope">{{ scope.row.date }}</template>
+                    label="号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="姓名"
-                    width="120">
+                    prop=""
+                    label="ICCID"
+                    :formatter="formatStr">
                     </el-table-column>
                     <el-table-column
-                    prop="address"
-                    label="地址"
-                    show-overflow-tooltip>
+                    prop=""
+                    label="IMEI"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="IMSI"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="开户时间"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="生命周期"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="短信功能"
+                    :formatter="formatStr">
                     </el-table-column>
                 </el-table>
             </div>
@@ -289,22 +330,39 @@
                     @selection-change="handleSelectionChange">
                     <el-table-column
                     type="selection"
-                    width="55">
+                    width="35">
                     </el-table-column>
                     <el-table-column
-                    label="日期"
-                    width="120">
-                    <template slot-scope="scope">{{ scope.row.date }}</template>
+                    label="号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="姓名"
-                    width="120">
+                    prop=""
+                    label="ICCID">
                     </el-table-column>
                     <el-table-column
-                    prop="address"
-                    label="地址"
-                    show-overflow-tooltip>
+                    prop=""
+                    label="IMEI">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="IMSI">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="套餐编码">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="开户时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="生命周期">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="语音控制">
                     </el-table-column>
                 </el-table>
             </div>
@@ -328,6 +386,7 @@
 </template>
 
 <script>
+import { formatDate, formatStr, formatNbr } from "../../utils/format.js";
 export default {
   name: "FunctionManagement",
   data() {
@@ -336,61 +395,20 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
+      tableData: [],
       currentPage1: 1,
       currentPage2: 1,
       currentPage3: 1,
       activeName: "first",
-      tableData3: [
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-08",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-06",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-07",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        }
-      ],
+      tableData3: [],
       multipleSelection: [],
       value13: [],
       value3: false
     };
   },
   methods: {
+    formatStr: formatStr,
+    formatNbr: formatNbr,
     onSubmit() {
       console.log("submit!");
     },

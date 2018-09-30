@@ -35,21 +35,35 @@
             border
             style="width: 100%">
             <el-table-column
-            prop="number"
-            label="预警号码"
-            width="180">
+            prop=""
+            label="工单编号">
             </el-table-column>
             <el-table-column
-            prop="name"
-            label="预警名称"
-            width="180">
+            prop=""
+            label="工单名称">
             </el-table-column>
             <el-table-column
-            prop="content"
-            label="预警内容">
+            prop=""
+            label="类型">
             </el-table-column>
             <el-table-column
-            prop="handle"
+            prop=""
+            label="提交时间">
+            </el-table-column>
+            <el-table-column
+            prop=""
+            label="提交人">
+            </el-table-column>
+            <el-table-column
+            prop=""
+            label="当前处理人">
+            </el-table-column>
+            <el-table-column
+            prop=""
+            label="工单状态">
+            </el-table-column>
+            <el-table-column
+            prop=""
             label="操作">
             </el-table-column>
         </el-table>
@@ -66,14 +80,7 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
+      tableData: [],
       currentPage4: 1
     };
   },

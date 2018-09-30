@@ -5,10 +5,10 @@
             <div class="form-wrap">
                 <el-form :inline="true" :model="formInline" class="demo-form-inline">
                     <el-form-item label="号码：">
-                        <el-input v-model="formInline.user" placeholder=""></el-input>
+                        <el-input v-model="formInline.nbr" placeholder=""></el-input>
                     </el-form-item>
                     <el-form-item label="短信内容：">
-                        <el-input v-model="formInline.user" placeholder=""></el-input>
+                        <el-input v-model="formInline.cnt" placeholder=""></el-input>
                     </el-form-item>
                     <el-form-item label="发送状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
@@ -31,22 +31,34 @@
                     border
                     style="width: 100%">
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    type="index"
+                    width="50"
+                    label="序号">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="短信类型">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="短信内容">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="发送时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="发送状态">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="终端接收状态">
                     </el-table-column>
                 </el-table>
             </div>
@@ -55,10 +67,10 @@
             <div class="form-wrap">
                 <el-form :inline="true" :model="formInline" class="demo-form-inline">
                     <el-form-item label="号码：">
-                        <el-input v-model="formInline.user" placeholder=""></el-input>
+                        <el-input v-model="formInline.nbr" placeholder=""></el-input>
                     </el-form-item>
                     <el-form-item label="短信内容：">
-                        <el-input v-model="formInline.user" placeholder=""></el-input>
+                        <el-input v-model="formInline.cnt" placeholder=""></el-input>
                     </el-form-item>
                     <el-form-item label="接收时间：">
                         <el-date-picker
@@ -80,22 +92,22 @@
                     border
                     style="width: 100%">
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    type="index"
+                    width="50"
+                    label="序号">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="回复号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="短信内容">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="接收时间">
                     </el-table-column>
                 </el-table>
             </div>
@@ -143,8 +155,8 @@ export default {
   data() {
     return {
       formInline: {
-        user: "",
-        region: ""
+        nbr: "",
+        cnt: ""
       },
       form: {
         name: "",
@@ -156,17 +168,9 @@ export default {
         resource: "",
         desc: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
-      currentPage4: 1,
+      tableData: [],
       activeName: "first",
-      vlaue1: []
+      value1: []
     };
   },
   methods: {
@@ -192,11 +196,11 @@ export default {
   .form-wrap {
     padding: 25px 10px 25px 10px;
     background-color: #ecf0f8;
-    p{
-        font-size: 12px;
-        margin-left: 100px;
-        margin-bottom: 10px;
-        color: #FF0002;
+    p {
+      font-size: 12px;
+      margin-left: 100px;
+      margin-bottom: 10px;
+      color: #ff0002;
     }
   }
   .title {
@@ -227,8 +231,8 @@ export default {
       float: left;
       margin-left: 0 !important;
     }
-    .el-button{
-        margin-left: 100px;
+    .el-button {
+      margin-left: 100px;
     }
   }
 }

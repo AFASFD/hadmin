@@ -49,22 +49,25 @@
                       @selection-change="handleSelectionChange">
                       <el-table-column
                       type="selection"
-                      width="55">
+                      width="35">
                       </el-table-column>
                       <el-table-column
-                      label="日期"
-                      width="120">
-                      <template slot-scope="scope">{{ scope.row.date }}</template>
-                      </el-table-column>
-                      <el-table-column
-                      prop="name"
-                      label="姓名"
+                      type="index"
+                      label="序号"
                       width="120">
                       </el-table-column>
                       <el-table-column
-                      prop="address"
-                      label="地址"
-                      show-overflow-tooltip>
+                      prop=""
+                      label="号码"
+                      width="130">
+                      </el-table-column>
+                      <el-table-column
+                      prop=""
+                      label="生命周期状态">
+                      </el-table-column>
+                      <el-table-column
+                      prop=""
+                      label="开户时间">
                       </el-table-column>
                     </el-table>
                   </div>
@@ -72,7 +75,7 @@
                       <el-pagination
                           @size-change="handleSizeChange"
                           @current-change="handleCurrentChange"
-                          :current-page.sync="currentPage3"
+                          :current-page.sync="currentPage1"
                           :page-size="100"
                           layout="prev, pager, next, jumper"
                           :total="1000">
@@ -111,22 +114,25 @@
                               </template>
                             </el-table-column>
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            label="序号"
+                            type="index"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="套餐编号">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="免费资源">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="资费">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -165,22 +171,25 @@
                               </template>
                             </el-table-column>
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            label="序号"
+                            type="index"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="套餐编号">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="免费资源">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="资费">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -219,22 +228,25 @@
                               </template>
                             </el-table-column>
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            label="序号"
+                            type="index"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="套餐编号">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="免费资源">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="资费">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -273,22 +285,25 @@
                               </template>
                             </el-table-column>
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            label="序号"
+                            type="index"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="套餐编号">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="免费资源">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="资费">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -342,19 +357,36 @@
                       width="55">
                     </el-table-column>
                     <el-table-column
-                      label="日期"
-                      width="120">
-                      <template slot-scope="scope">{{ scope.row.date }}</template>
+                      label="号码"
+                      width="130">
                     </el-table-column>
                     <el-table-column
-                      prop="name"
-                      label="姓名"
-                      width="120">
+                      prop=""
+                      label="生命周期状态">
                     </el-table-column>
                     <el-table-column
-                      prop="address"
-                      label="地址"
-                      show-overflow-tooltip>
+                      prop=""
+                      label="套餐类型">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="套餐编码">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="套餐名称">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="套餐生效时间">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="套餐失效时间">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="操作">
                     </el-table-column>
                   </el-table>
                 </div>
@@ -362,7 +394,7 @@
                   <el-pagination
                       @size-change="handleSizeChange"
                       @current-change="handleCurrentChange"
-                      :current-page.sync="currentPage3"
+                      :current-page.sync="currentPage2"
                       :page-size="100"
                       layout="prev, pager, next, jumper"
                       :total="1000">
@@ -421,19 +453,36 @@
                       width="55">
                     </el-table-column>
                     <el-table-column
-                      label="日期"
-                      width="120">
-                      <template slot-scope="scope">{{ scope.row.date }}</template>
+                      label="号码"
+                      width="130">
                     </el-table-column>
                     <el-table-column
-                      prop="name"
-                      label="姓名"
-                      width="120">
+                      prop=""
+                      label="生命周期状态">
                     </el-table-column>
                     <el-table-column
-                      prop="address"
-                      label="地址"
-                      show-overflow-tooltip>
+                      prop=""
+                      label="套餐类型">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="月套餐名称">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="套餐编号">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="套餐生效时间">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="套餐失效时间">
+                    </el-table-column>
+                    <el-table-column
+                      prop=""
+                      label="操作">
                     </el-table-column>
                   </el-table>
                 </div>
@@ -494,19 +543,21 @@
                       width="55">
                       </el-table-column>
                       <el-table-column
-                      label="日期"
-                      width="120">
-                      <template slot-scope="scope">{{ scope.row.date }}</template>
+                      label="序号"
+                      type="index"
+                      width="50">
                       </el-table-column>
                       <el-table-column
-                      prop="name"
-                      label="姓名"
-                      width="120">
+                      prop=""
+                      label="号码">
                       </el-table-column>
                       <el-table-column
-                      prop="address"
-                      label="地址"
-                      show-overflow-tooltip>
+                      prop=""
+                      label="生命周期状态">
+                      </el-table-column>
+                      <el-table-column
+                      prop=""
+                      label="开户时间">
                       </el-table-column>
                     </el-table>
                   </div>
@@ -514,7 +565,7 @@
                       <el-pagination
                           @size-change="handleSizeChange"
                           @current-change="handleCurrentChange"
-                          :current-page.sync="currentPage3"
+                          :current-page.sync="currentPage4"
                           :page-size="100"
                           layout="prev, pager, next, jumper"
                           :total="1000">
@@ -553,22 +604,25 @@
                               </template>
                             </el-table-column>
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            label="序号"
+                            type="index"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="套餐编号">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="免费资源">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="资费">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -600,65 +654,17 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          radio: "1",
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        },
-        {
-          radio: "2",
-          number: "2",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
-      currentPage4: 1,
+      tableData: [],
       activeName: "first",
       radio: "",
-      tableData3: [
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-08",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-06",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-07",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        }
-      ],
+      tableData3: [],
       multipleSelection: [],
       value1: "",
-      value2: ""
+      value2: "",
+      currentPage1: 1,
+      currentPage2: 1,
+      currentPage3: 1,
+      currentPage4: 1,
     };
   },
   methods: {

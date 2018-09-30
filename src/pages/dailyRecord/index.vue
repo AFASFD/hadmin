@@ -38,21 +38,43 @@
                     border
                     style="width: 100%">
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="月份">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="API 类型">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="API名称">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
+                    prop=""
+                    label="API方法名">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="调用次数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="失败次数(含客户原因)">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="失败次数(不含客户原因)">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="成功率（含客户原因）">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="成功率（不含客户原因）">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
                     label="操作">
                     </el-table-column>
                 </el-table>
@@ -99,22 +121,38 @@
                     border
                     style="width: 100%">
                     <el-table-column
-                    prop="number"
-                    label="预警号码"
-                    width="180">
+                    prop=""
+                    label="序号"
+                    width="50">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="预警名称"
-                    width="180">
+                    prop=""
+                    label="号码"
+                    width="130">
                     </el-table-column>
                     <el-table-column
-                    prop="content"
-                    label="预警内容">
+                    prop=""
+                    label="IP">
                     </el-table-column>
                     <el-table-column
-                    prop="handle"
-                    label="操作">
+                    prop=""
+                    label="API名称">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="调用时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="返回时间">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="调用参数">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="返回消息">
                     </el-table-column>
                 </el-table>
             </div>
@@ -132,16 +170,11 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
+      tableData: [],
       currentPage4: 1,
-      activeName: "first"
+      activeName: "first",
+      value1: "",
+      value4: ""
     };
   },
   methods: {

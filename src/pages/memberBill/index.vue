@@ -7,7 +7,7 @@
             </el-form-item>
             <el-form-item label="提交时间：">
               <el-date-picker
-                v-model="value1"
+                v-model="submitTime"
                 type="date"
                 placeholder="选择日期">
               </el-date-picker>
@@ -39,21 +39,33 @@
             border
             style="width: 100%">
             <el-table-column
-            prop="number"
-            label="预警号码"
-            width="180">
+            prop=""
+            label="月份"
+            width="">
             </el-table-column>
             <el-table-column
-            prop="name"
-            label="预警名称"
-            width="180">
+            prop=""
+            label="号码"
+            width="130">
             </el-table-column>
             <el-table-column
-            prop="content"
-            label="预警内容">
+            prop=""
+            label="总费用(元)">
             </el-table-column>
             <el-table-column
-            prop="handle"
+            prop=""
+            label="是否纳入企业代付">
+            </el-table-column>
+            <el-table-column
+            prop=""
+            label="企业代付(元)">
+            </el-table-column>
+            <el-table-column
+            prop=""
+            label="个人付费(元)">
+            </el-table-column>
+            <el-table-column
+            prop=""
             label="操作">
             </el-table-column>
         </el-table>
@@ -70,15 +82,8 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
-      currentPage4: 1
+      tableData: [],
+      submitTime: ''
     };
   },
   methods: {
@@ -100,15 +105,15 @@ export default {
 .memberBill {
   position: relative;
   padding: 20px 10px;
-  .a{
-    .el-input{
+  .a {
+    .el-input {
       width: 60px;
       float: left;
     }
-    span{
+    span {
       float: left;
       margin-left: 5px;
-      margin-right: 5px; 
+      margin-right: 5px;
     }
   }
   .form-wrap {

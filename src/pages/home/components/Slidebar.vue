@@ -28,12 +28,12 @@
         <el-menu-item-group>
           <el-menu-item index="/setmealmanagement" @click="emitSlidebar('资费计划>>套餐管理')">套餐管理</el-menu-item>
           <el-menu-item index="/packageprocess" @click="emitSlidebar('资费计划>>套餐办理')">套餐办理</el-menu-item>
-          <el-menu-item index="/flowamanagement" @click="emitSlidebar('资费计划>>流量共享管理')">流量共享管理</el-menu-item>
+          <!-- <el-menu-item index="/flowamanagement" @click="emitSlidebar('资费计划>>流量共享管理')">流量共享管理</el-menu-item> -->
           <!-- <el-menu-item index="/flowbmanagement" @click="emitFlowbManagement">流量池管理</el-menu-item> -->
           <el-menu-item index="/orderinquiry" @click="emitSlidebar('资费计划>>订单查询')">订单查询</el-menu-item>
           <el-menu-item index="/flowinquiry" @click="emitSlidebar('资费计划>>用量查询')">用量查询</el-menu-item>
-          <el-menu-item index="/internationalroam" @click="emitSlidebar('资费计划>>国漫管理')">国漫管理</el-menu-item>
-          <el-menu-item index="/cardmanagement" @click="emitSlidebar('资费计划>>两地卡管理')">两地卡管理</el-menu-item>
+          <!-- <el-menu-item index="/internationalroam" @click="emitSlidebar('资费计划>>国漫管理')">国漫管理</el-menu-item> -->
+          <!-- <el-menu-item index="/cardmanagement" @click="emitSlidebar('资费计划>>两地卡管理')">两地卡管理</el-menu-item> -->
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="4">

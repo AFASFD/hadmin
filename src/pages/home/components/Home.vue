@@ -843,29 +843,31 @@ export default {
       obj.method=fname
       group(obj, res => {
         console.log(res);
-        let data = res.data;
-        this.stateTrend = data.data;
-        let ydata = [
-          this.stateTrend.testCount,
-          this.stateTrend.silentCount,
-          this.stateTrend.inventoryCount,
-          this.stateTrend.normalCount,
-          this.stateTrend.stopCount,
-          this.stateTrend.preCloseCount,
-          this.stateTrend.bespeakCloseCount
-        ];
-        let xdata = [
-          "测试期",
-          "沉默期",
-          "库存期",
-          "正使用",
-          "停机",
-          "销户",
-          "预约销户"
-        ];
-        console.log(ydata);
-        console.log(xdata);
-        this.setPeopleSituationChart(xdata, ydata);
+        let data = res.data.data;
+        if(data){
+          this.stateTrend = data;
+          let ydata = [
+            this.stateTrend.testCount,
+            this.stateTrend.silentCount,
+            this.stateTrend.inventoryCount,
+            this.stateTrend.normalCount,
+            this.stateTrend.stopCount,
+            this.stateTrend.preCloseCount,
+            this.stateTrend.bespeakCloseCount
+          ];
+          let xdata = [
+            "测试期",
+            "沉默期",
+            "库存期",
+            "正使用",
+            "停机",
+            "销户",
+            "预约销户"
+          ];
+          console.log(ydata);
+          console.log(xdata);
+          this.setPeopleSituationChart(xdata, ydata);
+        }
       });
     }
   },

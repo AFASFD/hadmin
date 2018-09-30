@@ -73,22 +73,9 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="content"
-                            label="预警内容">
-                            </el-table-column>
-                            <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -96,7 +83,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage1"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -173,22 +160,9 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="content"
-                            label="预警内容">
-                            </el-table-column>
-                            <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -196,7 +170,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage2"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -273,22 +247,30 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            label="序号"
+                            width="50"
+                            type="index">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="号码"
+                            width="130">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="本月总套餐流量">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="已用流量">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="剩余流量">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="套外流量">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -369,22 +351,25 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            label="序号"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="套餐总流量（MB）">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="已使用流量（MB）">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -392,7 +377,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage4"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -471,22 +456,9 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="content"
-                            label="预警内容">
-                            </el-table-column>
-                            <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -494,7 +466,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage5"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -567,22 +539,9 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="content"
-                            label="预警内容">
-                            </el-table-column>
-                            <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -590,7 +549,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage6"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -663,22 +622,30 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            type="index"
+                            label="序号"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="号码"
+                            width="130">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="本月总套餐用量(条)">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="已用用量(条)">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="剩余用量(条)">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="套外用量(条)">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -686,7 +653,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage7"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -759,22 +726,26 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            prop=""
+                            label="序号"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="套餐总用量（条）">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="已使用流量（条）">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -782,7 +753,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage8"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -861,22 +832,9 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="content"
-                            label="预警内容">
-                            </el-table-column>
-                            <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -884,7 +842,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage9"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -957,22 +915,9 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
-                            </el-table-column>
-                            <el-table-column
-                            prop="content"
-                            label="预警内容">
-                            </el-table-column>
-                            <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -980,7 +925,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage10"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -1053,22 +998,30 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            type="index"
+                            label="序号"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="号码"
+                            width="130">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="本月总套餐用量(分钟)">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="已用用量(分钟)">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="剩余用量(分钟)">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="套外用量(分钟)">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -1076,7 +1029,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage11"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -1149,22 +1102,26 @@
                             border
                             style="width: 100%">
                             <el-table-column
-                            prop="number"
-                            label="预警号码"
-                            width="180">
+                            type="index"
+                            label="序号"
+                            width="50">
                             </el-table-column>
                             <el-table-column
-                            prop="name"
-                            label="预警名称"
-                            width="180">
+                            prop=""
+                            label="手机号码"
+                            width="130">
                             </el-table-column>
                             <el-table-column
-                            prop="content"
-                            label="预警内容">
+                            prop=""
+                            label="套餐名称">
                             </el-table-column>
                             <el-table-column
-                            prop="handle"
-                            label="操作">
+                            prop=""
+                            label="套餐总用量（分钟）">
+                            </el-table-column>
+                            <el-table-column
+                            prop=""
+                            label="已使用用量（分钟）">
                             </el-table-column>
                         </el-table>
                       </div>
@@ -1172,7 +1129,7 @@
                           <el-pagination
                                 @size-change="handleSizeChange"
                                 @current-change="handleCurrentChange"
-                                :current-page.sync="currentPage3"
+                                :current-page.sync="currentPage12"
                                 :page-size="100"
                                 layout="prev, pager, next, jumper"
                                 :total="1000">
@@ -1196,62 +1153,22 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [
-        {
-          radio: "1",
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        },
-        {
-          radio: "2",
-          number: "2",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          handle: "123"
-        }
-      ],
+      tableData: [],
+      currentPage1: 1,
+      currentPage2: 1,
+      currentPage3: 1,
       currentPage4: 1,
+      currentPage5: 1,
+      currentPage6: 1,
+      currentPage7: 1,
+      currentPage8: 1,
+      currentPage9: 1,
+      currentPage10: 1,
+      currentPage11: 1,
+      currentPage12: 1,
       activeName: "first",
       radio: "",
-      tableData3: [
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-08",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-06",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-07",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        }
-      ],
+      tableData3: [],
       multipleSelection: []
     };
   },
