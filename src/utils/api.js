@@ -72,10 +72,8 @@ export function clearLocal () {
   localStorage.removeItem('token')
   localStorage.removeItem('name')
 }
-
 export function login (opt, fn) {
   axios.post('/admin/login', opt).then((res) => {
-    console.log(res)
     fn && fn(res)
   })
 }
@@ -87,7 +85,6 @@ export function logout (opt, fn) {
     fn && fn(res)
   })
 }
-
 export function group (opt, fn) {
   axios.get('/action/group', {
     params: opt
@@ -100,7 +97,6 @@ export function member (opt, fn) {
   axios.get('/action/member', {
     params: opt
   }).then((res) => {
-    console.log(res)
     fn && fn(res)
   })
 }

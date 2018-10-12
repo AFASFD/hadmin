@@ -38,10 +38,8 @@ export default {
             console.log(res);
           }
         );
-      }catch(e) {
-        //
-      } 
-      finally {
+      } catch (e) {
+      } finally {
         clearLocal();
         location.reload();
       }

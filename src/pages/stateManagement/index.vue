@@ -450,11 +450,13 @@
                     <el-table-column
                     prop="actTime"
                     label="激活时间"
+										width="170"
                     :formatter="formatStr">
                     </el-table-column>
                     <el-table-column
                     prop="address"
                     label="测试期到期时间"
+										width="170"
                     :formatter="formatStr">
                     </el-table-column>
                 </el-table>
@@ -558,6 +560,196 @@
                 </el-pagination>
             </div>
         </el-tab-pane>
+        <el-tab-pane label="预约停开管理" name="third">
+            <div class="form-wrap">
+                <el-form :inline="true" :model="formInline" class="demo-form-inline">
+                    <el-form-item label="号码信息：">
+                        <el-input v-model="formInline.user"></el-input>
+                    </el-form-item>
+                    <el-form-item label="生命周期状态：">
+                        <el-select v-model="formInline.region" placeholder="请选择">
+                            <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="停开状态：">
+                        <el-select v-model="formInline.region" placeholder="请选择">
+                            <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit">查询</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
+            <h3 class="title">
+                <img src="../../assets/icongl.png" alt="">
+                号码状态列表
+            </h3>
+            <div class="table">
+                <el-table
+                    ref="multipleTable"
+                    :data="tableData"
+                    tooltip-effect="dark"
+                    style="width: 100%"
+                    border
+                    @selection-change="handleSelectionChange">
+                    <el-table-column
+                    type="selection"
+                    width="35">
+                    </el-table-column>
+                    <el-table-column
+                    label="号码"
+                    width="130">
+                        <template slot-scope="scope">
+                            <span class="number" @click.stop="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                    prop="status"
+                    label="生命周期状态"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="停开状态	"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="预约停开状态"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="预约生效时间"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="开户时间"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="激活时间"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="操作"
+                    width="80"
+                    :formatter="formatStr">
+                    </el-table-column>
+                </el-table>
+            </div>
+            <ul class="btnlist clearfix">
+                <li>停开</li>
+            </ul>
+            <div class="pagination clearfix">
+                <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page.sync="currentPage4"
+                    :page-size="100"
+                    layout="prev, pager, next, jumper"
+                    :total="1000">
+                </el-pagination>
+            </div>
+        </el-tab-pane>
+        <el-tab-pane label="预约日志" name="fourth">
+            <div class="form-wrap">
+                <el-form :inline="true" :model="formInline" class="demo-form-inline">
+                    <el-form-item label="号码信息：">
+                        <el-input v-model="formInline.user"></el-input>
+                    </el-form-item>
+                    <el-form-item label="生命周期状态：">
+                        <el-select v-model="formInline.region" placeholder="请选择">
+                            <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="停开状态：">
+                        <el-select v-model="formInline.region" placeholder="请选择">
+                            <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit">查询</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
+            <h3 class="title">
+                <img src="../../assets/icongl.png" alt="">
+                号码状态列表
+            </h3>
+            <div class="table">
+                <el-table
+                    ref="multipleTable"
+                    :data="tableData"
+                    tooltip-effect="dark"
+                    style="width: 100%"
+                    border
+                    @selection-change="handleSelectionChange">
+                    <el-table-column
+                    type="selection"
+                    width="35">
+                    </el-table-column>
+                    <el-table-column
+                    label="号码"
+                    width="130">
+                        <template slot-scope="scope">
+                            <span class="number" @click.stop="handleEdit(scope.$index, scope.row)">{{scope.row.msisdn}}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                    prop="status"
+                    label="生命周期状态"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="变更后状态"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="预约停开状态"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="预约生效时间"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="提交时间"
+                    :formatter="formatStr">
+                    </el-table-column>
+                    <el-table-column
+                    prop=""
+                    label="处理结果"
+                    :formatter="formatStr">
+                    </el-table-column>
+                </el-table>
+            </div>
+            <ul class="btnlist clearfix">
+                <li>停开</li>
+            </ul>
+            <div class="pagination clearfix">
+                <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page.sync="currentPage4"
+                    :page-size="100"
+                    layout="prev, pager, next, jumper"
+                    :total="1000">
+                </el-pagination>
+            </div>
+        </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -637,38 +829,38 @@ export default {
       document.querySelector(".edit").addEventListener("click", e => {
         e.stopPropagation();
       });
-    },
-    getMember(fname, pagenum) {
+		},
+    getFirstMember(pagenum) {
       let ls = getLocal();
       let obj = {
-        method: fname,
+        method: "info.paged",
         pageNum: pagenum || 1,
-        maxRows: 10
+				maxRows: 10
       };
       obj = Object.assign({}, obj, ls);
       member(obj, res => {
-        console.log(res);
         let data = res.data.data;
-        for (let i = 0; i < data.dataList.length; i++) {
-          data.dataList[i]["openTime"] = formatDate(
-            data.dataList[i]["openTime"]
-          );
-          data.dataList[i]["statusTime"] = formatDate(
-            data.dataList[i]["statusTime"]
-          );
+        if(data){
+          for (let i = 0; i < data.dataList.length; i++) {
+            data.dataList[i]["openTime"] = formatDate(
+              data.dataList[i]["openTime"]
+            );
+            data.dataList[i]["statusTime"] = formatDate(
+              data.dataList[i]["statusTime"]
+            );
+          }
+          this.tableData = data.dataList;
+          this.pageSize = parseInt(data.pageSize);
+          this.totalCount = parseInt(data.totalCount);
+          this.pageIndex = parseInt(data.pageIndex);
+          this.pageCount = parseInt(data.pageCount);
+          this.hasNext = data.hasNext;
+					this.hasPrev = data.hasPrev;
         }
-        this.tableData = data.dataList;
-        this.pageSize = parseInt(data.pageSize);
-        this.totalCount = parseInt(data.totalCount);
-        this.pageIndex = parseInt(data.pageIndex);
-        this.pageCount = parseInt(data.pageCount);
-        this.hasNext = data.hasNext;
-        this.hasPrev = data.hasPrev;
-        console.log(this.tableData);
       });
     },
-        setFlowMessage() {
-      var fm = echarts.init(document.getElementById("flowMessage"));
+    setFlowMessage() {
+			var fm = echarts.init(document.getElementById("flowMessage"));
       fm.setOption({
         title: {
           text: "流量MB"
@@ -697,35 +889,30 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 2, 0, 0, 0],
             smooth: true
           },
           {
             name: "联盟广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "视频广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "直接访问",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "搜索引擎",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           }
@@ -762,35 +949,30 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "联盟广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "视频广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "直接访问",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "搜索引擎",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           }
@@ -827,35 +1009,30 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "联盟广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "视频广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "直接访问",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "搜索引擎",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           }
@@ -864,7 +1041,7 @@ export default {
     }
   },
   mounted() {
-    this.getMember("info.paged");
+    this.getFirstMember();
     this.bindEvents();
   }
 };

@@ -245,7 +245,7 @@
                         label="专用APN1已使用总流量"
                         :formatter="formatNbr">
                       </el-table-column>
-                      <el-table-column
+                      <!-- <el-table-column
                         prop=""
                         label="专用APN2已使用总流量"
                         :formatter="formatNbr">
@@ -264,7 +264,7 @@
                         prop=""
                         label="专用APN5已使用总流量"
                         :formatter="formatNbr">
-                      </el-table-column>
+                      </el-table-column> -->
                     </el-table>
                 </el-tab-pane>
                 <el-tab-pane label="短信信息" name="third">
@@ -331,7 +331,7 @@
                       </el-table-column>
                     </el-table>
                 </el-tab-pane>
-                <el-tab-pane label="APN详情" name="fifth">
+                <!-- <el-tab-pane label="APN详情" name="fifth">
                     <h3 class="title">
                         <img src="../../assets/icongl.png" alt="">
                         APN详情
@@ -366,7 +366,7 @@
                         :formatter="formatNbr">
                       </el-table-column>
                     </el-table>
-                </el-tab-pane>
+                </el-tab-pane> -->
             </el-tabs>
           </div>
       </div>
@@ -542,13 +542,14 @@ export default {
       let obj = getLocal();
       obj = Object.assign({}, obj, this.formInline);
       obj.method = "switch.single";
-      console.log(obj);
+      console.log(obj)
       member(obj, res => {
         console.log(res);
       });
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+      console.log(this.currentPage);
     },
     handleEdit(index, row) {
       this.currentData = row;
@@ -559,16 +560,12 @@ export default {
           this.activeName = "first";
         });
       }, 0);
-      console.log(this.currentData);
     },
     hiddenEdit() {
-      console.log("yincang");
       this.isHidden = false;
       this.activeName = "first";
     },
-    handleClick() {
-      console.log(1);
-    },
+    handleClick() {},
     getMember(fname, pagenum) {
       let ls = getLocal();
       let obj = {
@@ -579,7 +576,6 @@ export default {
       obj = Object.assign({}, obj, ls);
       member(obj, res => {
         let data = res.data.data;
-        console.log(data);
         if (data) {
           for (let i = 0; i < data.dataList.length; i++) {
             data.dataList[i]["openTime"] = formatDate(
@@ -644,13 +640,12 @@ export default {
         data.method = "info.single";
         obj = Object.assign({}, obj, data);
         member(obj, res => {
-          console.log(res);
           let data = res.data.data;
+          console.log(data);
           this.pageCount = 0;
           if (data) {
             data["openTime"] = formatDate(data["openTime"]);
             data["statusTime"] = formatDate(data["statusTime"]);
-            console.log(data);
             this.tableData = [data];
           } else {
             this.tableData = [];
@@ -658,7 +653,6 @@ export default {
           console.log(this.tableData);
         });
       }
-      console.log(obj);
     },
     setFlowMessage() {
       var fm = echarts.init(document.getElementById("flowMessage"));
@@ -690,36 +684,31 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            stack: "总量",
-            data: [0, 0, 0, 2, 0, 0, 0],
+            data: [2, 2, 2, 3, 2, 2, 3],
             smooth: true
           },
           {
             name: "联盟广告",
             type: "line",
-            stack: "总量",
-            data: [0, 0, 0, 0, 0, 0, 0],
+            data: [0, 0, 1, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "视频广告",
             type: "line",
-            stack: "总量",
-            data: [0, 0, 0, 0, 0, 0, 0],
+            data: [0, 2, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "直接访问",
             type: "line",
-            stack: "总量",
-            data: [0, 0, 0, 0, 0, 0, 0],
+            data: [0, 0, 0, 0, 0, 0, 1],
             smooth: true
           },
           {
             name: "搜索引擎",
             type: "line",
-            stack: "总量",
-            data: [0, 0, 0, 0, 0, 0, 0],
+            data: [0, 0, 0, 0, 2, 0, 0],
             smooth: true
           }
         ]
@@ -755,35 +744,30 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "联盟广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "视频广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "直接访问",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "搜索引擎",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           }
@@ -820,35 +804,30 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "联盟广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "视频广告",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "直接访问",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "搜索引擎",
             type: "line",
-            stack: "总量",
             data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           }

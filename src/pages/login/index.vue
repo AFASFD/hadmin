@@ -41,13 +41,14 @@ export default {
       logInfo: {
         username: "",
         password: ""
-      }
+      },
+      code: ""
     };
   },
   methods: {
     createCode: function() {
-      code = "";
-      var codeLength = 5; //验证码的长度
+      this.code = "";
+      var codeLength = 4; //验证码的长度
       var checkCode = document.getElementById("checkCode");
       var random = new Array(
         0,
@@ -90,9 +91,9 @@ export default {
       for (var i = 0; i < codeLength; i++) {
         //循环操作
         var charIndex = Math.floor(Math.random() * 36); //取得随机数的索引
-        code += random[charIndex]; //根据索引取得随机数加到code上
+        this.code += random[charIndex]; //根据索引取得随机数加到code上
       }
-      checkCode.value = code; //把code值赋给验证码
+      checkCode.value = this.code; //把code值赋给验证码
     },
     //校验验证码
     validate: function() {
@@ -101,7 +102,7 @@ export default {
         //若输入的验证码长度为0
         this.prompt = "请输入验证码!"; //则弹出请输入验证码
         return false;
-      } else if (inputCode != code) {
+      } else if (inputCode != this.code) {
         //若输入的验证码与产生的验证码不一致时
         this.prompt = "验证码输入错误!"; //则弹出验证码输入错误
         this.createCode(); //刷新验证码
@@ -128,7 +129,6 @@ export default {
               return;
             }
             let data = res.data.data;
-
             localStorage.setItem("username", data.username);
             localStorage.setItem("groupCode", data.groupInfo.groupCode);
             localStorage.setItem("token", data.token);
@@ -156,21 +156,6 @@ export default {
 <style scoped lang="scss">
 .login {
   position: relative;
-  .code {
-    width: 70px;
-    font-family: Arial;
-    font-style: italic;
-    font-weight: bold;
-    border: 0;
-    letter-spacing: 3px;
-    color: blue;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    outline: none;
-    background-color: #fff;
-  }
   .title {
     position: absolute;
     left: 9%;
@@ -194,7 +179,6 @@ export default {
     width: 280px;
     height: 300px;
     text-align: center;
-    overflow-y: auto;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.6);
     position: absolute;
@@ -215,6 +199,23 @@ export default {
         margin-bottom: 25px;
         &:last-child {
           margin-bottom: 0;
+        }
+        .code {
+          width: 96px;
+          font-family: Arial;
+          font-style: italic;
+          font-weight: bold;
+          border: 0;
+          font-size: 15px;
+          letter-spacing: 8px;
+          color: blue;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          outline: none;
+          background-color: #fff;
+          cursor: pointer;
         }
         label {
           width: 100%;
