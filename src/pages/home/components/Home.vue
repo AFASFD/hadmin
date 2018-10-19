@@ -234,33 +234,9 @@ export default {
       peoples: 0,
       flow: 0,
       unprocessed: 0,
-      tableData: [
-        {
-          number: "1",
-          name: "王小虎",
-          content: "上海市普陀区金沙江路 1518 弄",
-          a: "123",
-          handle: "123"
-        }
-      ],
-      tableData2: [
-        {
-          number: "1",
-          name: "王小虎2",
-          content: "上海市普陀区金沙江路 1518 弄",
-          a: "123",
-          handle: "123"
-        }
-      ],
-      tableData3: [
-        {
-          number: "1",
-          name: "王小虎3",
-          content: "上海市普陀区金沙江路 1518 弄",
-          a: "123",
-          handle: "123"
-        }
-      ]
+      tableData: [],
+      tableData2: [],
+      tableData3: []
     };
   },
   watch: {
@@ -336,7 +312,7 @@ export default {
             stack: "总量",
             smooth: true,
             areaStyle: { normal: {} },
-            data: [120, 132, 101, 134, 90, 230, 210]
+            data: [0, 0, 0, 0, 0, 0, 0]
           },
           {
             name: "测试期",
@@ -344,7 +320,7 @@ export default {
             stack: "总量",
             smooth: true,
             areaStyle: { normal: {} },
-            data: [220, 182, 191, 234, 290, 330, 310]
+            data: [0, 0, 0, 0, 0, 0, 0]
           },
           {
             name: "沉默期",
@@ -352,7 +328,7 @@ export default {
             stack: "总量",
             smooth: true,
             areaStyle: { normal: {} },
-            data: [150, 232, 201, 154, 190, 330, 410]
+            data: [0, 0, 0, 0, 0, 0, 0]
           },
           {
             name: "预约销户",
@@ -360,7 +336,7 @@ export default {
             stack: "总量",
             smooth: true,
             areaStyle: { normal: {} },
-            data: [320, 332, 301, 334, 390, 330, 520]
+            data: [0, 0, 0, 0, 0, 0, 0]
           },
           {
             name: "停机",
@@ -368,7 +344,7 @@ export default {
             stack: "总量",
             smooth: true,
             areaStyle: { normal: {} },
-            data: [820, 932, 901, 934, 1290, 1330, 1320]
+            data: [0, 0, 0, 0, 0, 0, 0]
           }
         ]
       });
@@ -442,14 +418,14 @@ export default {
             type: "line",
             stack: "总量",
             smooth: true,
-            data: [120, 132, 101, 134, 90, 230, 210]
+            data: [0, 0, 0, 0, 0, 0, 0]
           },
           {
             name: "个人付费",
             type: "line",
             stack: "总量",
             smooth: true,
-            data: [220, 182, 191, 234, 290, 330, 310]
+            data: [0, 0, 0, 0, 0, 0, 0]
           }
         ]
       });
@@ -522,14 +498,14 @@ export default {
             type: "line",
             stack: "总量",
             smooth: true,
-            data: [120, 132, 101, 134, 90, 230, 210]
+            data: [0, 0, 0, 0, 0, 0, 0]
           },
           {
             name: "专用APN通道",
             type: "line",
             stack: "总量",
             smooth: true,
-            data: [220, 182, 191, 234, 290, 330, 310]
+            data: [0, 0, 0, 0, 0, 0, 0]
           }
         ]
       });
@@ -562,35 +538,13 @@ export default {
         },
         yAxis: {
           type: "category",
-          data: [
-            "中国",
-            "中国2",
-            "中国3",
-            "中国4",
-            "中国5",
-            "中国6",
-            "中国7",
-            "中国8",
-            "中国9",
-            "中国10"
-          ]
+          data: []
         },
         series: [
           {
             name: "成员流量使用",
             type: "bar",
-            data: [
-              131744,
-              131744,
-              131744,
-              131744,
-              131744,
-              131744,
-              131744,
-              131744,
-              131744,
-              131744
-            ]
+            data: []
           }
         ]
       });
@@ -839,12 +793,12 @@ export default {
       console.log(tab, event);
     },
     getGroup(fname) {
-      let obj=getLocal()
-      obj.method=fname
+      let obj = getLocal();
+      obj.method = fname;
       group(obj, res => {
         console.log(res);
         let data = res.data.data;
-        if(data){
+        if (data) {
           this.stateTrend = data;
           let ydata = [
             this.stateTrend.testCount,

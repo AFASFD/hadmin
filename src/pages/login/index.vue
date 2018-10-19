@@ -32,7 +32,6 @@
 
 <script>
 import { login, clearLocal } from "../../utils/api.js";
-var code;
 export default {
   name: "LogIn",
   data() {
@@ -48,9 +47,9 @@ export default {
   methods: {
     createCode: function() {
       this.code = "";
-      var codeLength = 4; //验证码的长度
-      var checkCode = document.getElementById("checkCode");
-      var random = new Array(
+      let codeLength = 4; //验证码的长度
+      let checkCode = document.getElementById("checkCode");
+      let random = new Array(
         0,
         1,
         2,
@@ -88,16 +87,16 @@ export default {
         "Y",
         "Z"
       ); //随机数
-      for (var i = 0; i < codeLength; i++) {
+      for (let i = 0; i < codeLength; i++) {
         //循环操作
-        var charIndex = Math.floor(Math.random() * 36); //取得随机数的索引
+        let charIndex = Math.floor(Math.random() * 36); //取得随机数的索引
         this.code += random[charIndex]; //根据索引取得随机数加到code上
       }
       checkCode.value = this.code; //把code值赋给验证码
     },
     //校验验证码
     validate: function() {
-      var inputCode = document.getElementById("input").value.toUpperCase(); //取得输入的验证码并转化为大写
+      let inputCode = document.getElementById("input").value.toUpperCase(); //取得输入的验证码并转化为大写
       if (inputCode.length <= 0) {
         //若输入的验证码长度为0
         this.prompt = "请输入验证码!"; //则弹出请输入验证码
@@ -115,9 +114,8 @@ export default {
       $("#logform").submit(e => {
         clearLocal();
         this.prompt = "";
-        let a = this.validate();
         //a为真表示校验通过
-        if (a) {
+        if (this.validate()) {
           login(this.logInfo, res => {
             e.preventDefault();
             if (res.status === 0) {

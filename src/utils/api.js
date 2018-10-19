@@ -19,7 +19,6 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
   // token失效
   if (response.data.code === '1001') {
-    alert('登录超时，请重新登录')
     clearLocal()
     router.push('/login')
   }

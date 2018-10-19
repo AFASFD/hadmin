@@ -684,31 +684,31 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            data: [2, 2, 2, 3, 2, 2, 3],
+            data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "联盟广告",
             type: "line",
-            data: [0, 0, 1, 0, 0, 0, 0],
+            data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "视频广告",
             type: "line",
-            data: [0, 2, 0, 0, 0, 0, 0],
+            data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "直接访问",
             type: "line",
-            data: [0, 0, 0, 0, 0, 0, 1],
+            data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           },
           {
             name: "搜索引擎",
             type: "line",
-            data: [0, 0, 0, 0, 2, 0, 0],
+            data: [0, 0, 0, 0, 0, 0, 0],
             smooth: true
           }
         ]
