@@ -99,11 +99,11 @@ export default {
       let inputCode = document.getElementById("input").value.toUpperCase(); //取得输入的验证码并转化为大写
       if (inputCode.length <= 0) {
         //若输入的验证码长度为0
-        this.prompt = "请输入验证码!"; //则弹出请输入验证码
+        this.prompt = "请输入验证码!"; 
         return false;
       } else if (inputCode != this.code) {
         //若输入的验证码与产生的验证码不一致时
-        this.prompt = "验证码输入错误!"; //则弹出验证码输入错误
+        this.prompt = "验证码输入错误!"; 
         this.createCode(); //刷新验证码
         return false;
       } else {
@@ -157,7 +157,7 @@ export default {
   .title {
     position: absolute;
     left: 9%;
-    top: 270px;
+    top: 270px; 
     width: 400px;
     h2 {
       line-height: 64px;
