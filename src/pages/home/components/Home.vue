@@ -890,6 +890,9 @@ export default {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    &:first-child{
+      margin-top: 0;
+    }
     .r_out {
       width: 200px;
       height: 200px;

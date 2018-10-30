@@ -21,7 +21,7 @@
                 <div class="form-wrap">
                     <el-form :inline="true" :model="formInline" class="demo-form-inline">
                         <el-form-item label="号码：">
-                            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+                            <el-input v-model="formInline.user" placeholder=""></el-input>
                         </el-form-item>
                         <el-form-item label="生命周期：">
                             <el-select v-model="formInline.region" placeholder="请选择">

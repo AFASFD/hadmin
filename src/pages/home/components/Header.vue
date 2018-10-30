@@ -26,6 +26,11 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    name() {
+      return this.$store.state.name;
+    }
+  },
   methods: {
     logOut() {
       let username = localStorage.getItem("username");
@@ -48,12 +53,7 @@ export default {
       window.eventHub.emit("clickslidebar", str);
     }
   },
-  mounted() {},
-  computed: {
-    name() {
-      return this.$store.state.name;
-    }
-  }
+  mounted() {}
 };
 </script>
 

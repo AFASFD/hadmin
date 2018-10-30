@@ -486,14 +486,14 @@
                     </el-form-item>
                     <el-form-item label="生命周期状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                            <!-- <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option> -->
                         </el-select>
                     </el-form-item>
                     <el-form-item label="停开状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                            <!-- <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option> -->
                         </el-select>
                     </el-form-item>
                     <el-form-item>
@@ -568,14 +568,14 @@
                     </el-form-item>
                     <el-form-item label="生命周期状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                            <!-- <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option> -->
                         </el-select>
                     </el-form-item>
                     <el-form-item label="停开状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                            <!-- <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option> -->
                         </el-select>
                     </el-form-item>
                     <el-form-item>
@@ -666,14 +666,14 @@
                     </el-form-item>
                     <el-form-item label="生命周期状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                            <!-- <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option> -->
                         </el-select>
                     </el-form-item>
                     <el-form-item label="停开状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                            <!-- <el-option label="区域一" value="shanghai"></el-option>
+                            <el-option label="区域二" value="beijing"></el-option> -->
                         </el-select>
                     </el-form-item>
                     <el-form-item>

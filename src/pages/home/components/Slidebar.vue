@@ -1,9 +1,10 @@
 <template>
     <el-menu
-      :default-active="currentPath"
       class="el-menu-vertical-demo slidebar"
       :router="true"
-      :unique-opened="true">
+      :unique-opened="true"
+      :collapse-transition="false"
+      :default-active="currentPath">
       <el-menu-item index="/" @click="emitSlidebar('首页')">
         <img src="../../../assets/ic_left01.png" alt="">        
         <span slot="title">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</span>

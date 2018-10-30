@@ -5,7 +5,7 @@
             <div class="form-wrap">
                 <el-form :inline="true" :model="formInline" class="demo-form-inline">
                     <el-form-item label="号码信息：">
-                        <el-input v-model="formInline.user" placeholder="号码"></el-input>
+                        <el-input v-model="formInline.user" placeholder=""></el-input>
                     </el-form-item>
                     <el-form-item label="功能状态：">
                         <el-select v-model="formInline.region" placeholder="请选择">
@@ -135,10 +135,10 @@
             <div class="form-wrap">
                 <el-form :inline="true" :model="formInline" class="demo-form-inline">
                     <el-form-item label="查询号码：">
-                        <el-input v-model="formInline.user" placeholder="号码"></el-input>
+                        <el-input v-model="formInline.user" placeholder=""></el-input>
                     </el-form-item>
                     <el-form-item label="生命周期：">
-                        <el-select v-model="formInline.region" placeholder="活动区域">
+                        <el-select v-model="formInline.region" placeholder="请选择">
                             <el-option label="全部" value="shanghai"></el-option>
                             <el-option label="测试期" value="beijing"></el-option>
                             <el-option label="沉默期" value="beijing"></el-option>
@@ -261,7 +261,7 @@
             <div class="form-wrap">
                 <el-form :inline="true" :model="formInline" class="demo-form-inline">
                     <el-form-item label="查询号码：">
-                        <el-input v-model="formInline.user" placeholder="号码"></el-input>
+                        <el-input v-model="formInline.user" placeholder=""></el-input>
                     </el-form-item>
                     <el-form-item label="生命周期：">
                         <el-select v-model="formInline.region" placeholder="请选择">
