@@ -221,7 +221,13 @@
 <script>
 var echarts = require("echarts");
 
-import { group, clearLocal, getLocal } from "../../../utils/api.js";
+import {
+  group,
+  clearLocal,
+  getLocal,
+  topTip,
+  peopleTrendChart
+} from "../../../utils/api.js";
 
 export default {
   name: "Home",
@@ -256,98 +262,104 @@ export default {
   },
   methods: {
     setPeopleTrendChart() {
-      var peopleTrendChart = echarts.init(
+      let peopleTrendChart_d = echarts.init(
         document.getElementById("peopleTrendChart")
       );
-      peopleTrendChart.setOption({
-        title: {
-          text: "成员数",
-          textStyle: {
-            color: "#000",
-            fontSize: "12"
+      if(peopleTrendChart_d){
+        peopleTrendChart(res => {
+          if (res.data) {
+            peopleTrendChart_d.setOption({
+              title: {
+                text: "成员数",
+                textStyle: {
+                  color: "#000",
+                  fontSize: "12"
+                }
+              },
+              tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                  type: "cross",
+                  label: {
+                    backgroundColor: "#6a7985"
+                  }
+                }
+              },
+              legend: {
+                data: ["正使用", "测试期", "沉默期", "预约销户", "停机"],
+                x: "right",
+                textStyle: {
+                  fontSize: "12"
+                },
+                itemWidth: 20,
+                itemHeight: 10,
+                itemGap: 10,
+                icon: "rect"
+              },
+              grid: {
+                left: "3%",
+                right: "4%",
+                bottom: "3%",
+                containLabel: true
+              },
+              xAxis: [
+                {
+                  type: "category",
+                  boundaryGap: false,
+                  data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+                }
+              ],
+              yAxis: [
+                {
+                  type: "value"
+                }
+              ],
+              series: [
+                {
+                  name: "正使用",
+                  type: "line",
+                  stack: "总量",
+                  smooth: true,
+                  areaStyle: { normal: {} },
+                  data: res.data.normalCount
+                },
+                {
+                  name: "测试期",
+                  type: "line",
+                  stack: "总量",
+                  smooth: true,
+                  areaStyle: { normal: {} },
+                  data: res.data.testCount
+                },
+                {
+                  name: "沉默期",
+                  type: "line",
+                  stack: "总量",
+                  smooth: true,
+                  areaStyle: { normal: {} },
+                  data: res.data.silentCount
+                },
+                {
+                  name: "预约销户",
+                  type: "line",
+                  stack: "总量",
+                  smooth: true,
+                  areaStyle: { normal: {} },
+                  data: res.data.preCloseCount
+                },
+                {
+                  name: "停机",
+                  type: "line",
+                  stack: "总量",
+                  smooth: true,
+                  areaStyle: { normal: {} },
+                  data: res.data.stopCount
+                }
+              ]
+            });
           }
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "cross",
-            label: {
-              backgroundColor: "#6a7985"
-            }
-          }
-        },
-        legend: {
-          data: ["正使用", "测试期", "沉默期", "预约销户", "停机"],
-          x: "right",
-          textStyle: {
-            fontSize: "12"
-          },
-          itemWidth: 20,
-          itemHeight: 10,
-          itemGap: 10,
-          icon: "rect"
-        },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: "category",
-            boundaryGap: false,
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
-          }
-        ],
-        yAxis: [
-          {
-            type: "value"
-          }
-        ],
-        series: [
-          {
-            name: "正使用",
-            type: "line",
-            stack: "总量",
-            smooth: true,
-            areaStyle: { normal: {} },
-            data: [0, 0, 0, 0, 0, 0, 0]
-          },
-          {
-            name: "测试期",
-            type: "line",
-            stack: "总量",
-            smooth: true,
-            areaStyle: { normal: {} },
-            data: [0, 0, 0, 0, 0, 0, 0]
-          },
-          {
-            name: "沉默期",
-            type: "line",
-            stack: "总量",
-            smooth: true,
-            areaStyle: { normal: {} },
-            data: [0, 0, 0, 0, 0, 0, 0]
-          },
-          {
-            name: "预约销户",
-            type: "line",
-            stack: "总量",
-            smooth: true,
-            areaStyle: { normal: {} },
-            data: [0, 0, 0, 0, 0, 0, 0]
-          },
-          {
-            name: "停机",
-            type: "line",
-            stack: "总量",
-            smooth: true,
-            areaStyle: { normal: {} },
-            data: [0, 0, 0, 0, 0, 0, 0]
-          }
-        ]
-      });
+        });
+      }
     },
     setPeopleSituationChart(xdata, ydata) {
       var peopleSituationChart = echarts.init(
@@ -823,9 +835,19 @@ export default {
           this.setPeopleSituationChart(xdata, ydata);
         }
       });
+    },
+    setTopTip() {
+      topTip(res => {
+        console.log(res);
+        let arr = ["money", "peoples", "flow", "unprocessed"];
+        for (let key in arr) {
+          this[arr[key]] = res.data[arr[key]];
+        }
+      });
     }
   },
   mounted() {
+    this.setTopTip();
     this.setPeopleTrendChart();
     this.setPeopleSituationChart();
     this.setCostTrendChart();
@@ -865,22 +887,18 @@ export default {
         .a1 {
           font-size: 18px;
           color: #6493fc;
-          padding-top: 3px;
         }
         .a2 {
           font-size: 18px;
           color: #9dc818;
-          padding-top: 3px;
         }
         .a3 {
           font-size: 18px;
           color: #eb6ea3;
-          padding-top: 3px;
         }
         .a4 {
           font-size: 18px;
           color: #ff0002;
-          padding-top: 3px;
         }
       }
     }
@@ -890,7 +908,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    &:first-child{
+    &:first-child {
       margin-top: 0;
     }
     .r_out {

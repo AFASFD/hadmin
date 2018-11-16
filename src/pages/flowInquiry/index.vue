@@ -1169,7 +1169,9 @@ export default {
       activeName: "first",
       radio: "",
       tableData3: [],
-      multipleSelection: []
+      multipleSelection: [],
+      value1: "",
+      value6: ""
     };
   },
   methods: {

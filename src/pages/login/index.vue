@@ -157,7 +157,7 @@ export default {
   .title {
     position: absolute;
     left: 9%;
-    top: 270px; 
+    top: 40%; 
     width: 400px;
     h2 {
       line-height: 64px;
@@ -181,7 +181,7 @@ export default {
     background-color: rgba(255, 255, 255, 0.6);
     position: absolute;
     top: 50%;
-    right: 190px;
+    right: 7%;
     transform: translateY(-50%);
     border-radius: 10px;
     ul {

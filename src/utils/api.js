@@ -1,6 +1,7 @@
 import router from '../router'
-
+import Mock from '../../node_modules/mockjs/dist/mock'
 const axios = require('axios')
+
 
 axios.defaults.baseURL = 'http://119.23.248.169'
 axios.defaults.timeout = 5000
@@ -54,31 +55,30 @@ axios.interceptors.response.use(function (response) {
   })
 })
 
-export function getLocal () {
-  let username = localStorage.getItem('username')
-  let groupCode = localStorage.getItem('groupCode')
-  let token = localStorage.getItem('token')
+export function getLocal() {
+  let arr = ['username', 'groupCode', 'token']
   let obj = {}
-  obj.username = username
-  obj.groupCode = groupCode
-  obj.token = token
+  for (let key in arr) {
+    obj[arr[key]] = localStorage.getItem(arr[key])
+  }
+  console.log(obj)
   return obj
 }
 
-export function clearLocal () {
-  localStorage.removeItem('username')
-  localStorage.removeItem('groupCode')
-  localStorage.removeItem('token')
-  localStorage.removeItem('name')
+export function clearLocal() {
+  let arr = ['username', 'groupCode', 'token', 'name']
+  for (let key in arr) {
+    localStorage.removeItem(arr[key])
+  }
 }
 
-export function login (opt, fn) {
+export function login(opt, fn) {
   axios.post('/admin/login', opt).then((res) => {
     fn && fn(res)
   })
 }
 
-export function logout (opt, fn) {
+export function logout(opt, fn) {
   axios.get('/admin/logout', {
     params: opt
   }).then((res) => {
@@ -86,7 +86,7 @@ export function logout (opt, fn) {
   })
 }
 
-export function group (opt, fn) {
+export function group(opt, fn) {
   axios.get('/action/group', {
     params: opt
   }).then((res) => {
@@ -94,10 +94,38 @@ export function group (opt, fn) {
   })
 }
 
-export function member (opt, fn) {
+export function member(opt, fn) {
   axios.get('/action/member', {
     params: opt
   }).then((res) => {
+    fn && fn(res)
+  })
+}
+//-----------------------------------------------
+//mock 
+Mock.mock('http://mockjs/toptip', {
+  'money|1-100.2': 1,
+  'peoples|1-10': 0,
+  'flow|1-1000.2': 0,
+  'unprocessed|1-10': 0
+})
+
+export function topTip(fn) {
+  axios.get('http://mockjs/toptip').then((res) => {
+    fn && fn(res)
+  })
+}
+
+Mock.mock('http://mockjs/peopleTrendChart', {
+  "normalCount|7": [120],
+  "testCount|7": [120],
+  "silentCount|7": [120],
+  "preCloseCount|7": [120],
+  "stopCount|7": [120]
+})
+
+export function peopleTrendChart(fn) {
+  axios.get('http://mockjs/peopleTrendChart').then((res) => {
     fn && fn(res)
   })
 }

@@ -2,7 +2,7 @@
   <div class="numberManagement">
     <div class="edit-wrap clearfix" :class="{active: isHidden}">
       <div class="edit">
-          <h1 class="clearfix">号码查询<span class="close" @click.stop="hiddenEdit">X</span></h1>
+          <h1 class="clearfix">号码查询<span class="close" @click="hiddenEdit">X</span></h1>
           <div class="cc">  
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
                 <el-tab-pane label="综合信息" name="first">
@@ -421,6 +421,7 @@
       </h3>
       <div class="table">
         <el-table
+          v-loading="loading"
           :data="tableData"
           border
           style="width: 100%">
@@ -508,7 +509,8 @@ export default {
       tableData: [],
       currentPage: 1,
       activeName: "first",
-      activeName2: "first-child"
+      activeName2: "first-child",
+      loading: false
     };
   },
   watch: {
@@ -542,7 +544,7 @@ export default {
       let obj = getLocal();
       obj = Object.assign({}, obj, this.formInline);
       obj.method = "switch.single";
-      console.log(obj)
+      console.log(obj);
       member(obj, res => {
         console.log(res);
       });
@@ -567,6 +569,7 @@ export default {
     },
     handleClick() {},
     getMember(fname, pagenum) {
+      this.loading = true;
       let ls = getLocal();
       let obj = {
         method: fname,
@@ -593,6 +596,8 @@ export default {
           this.hasNext = data.hasNext;
           this.hasPrev = data.hasPrev;
           console.log(this.tableData);
+
+          this.loading = false;
         }
       });
     },
@@ -684,7 +689,7 @@ export default {
           {
             name: "邮件营销",
             type: "line",
-            data: [0, 0, 0, 0, 0, 0, 0],
+            data: [0, 0, 3, 0, 0, 0, 0],
             smooth: true
           },
           {
