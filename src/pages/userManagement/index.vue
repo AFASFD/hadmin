@@ -34,7 +34,7 @@
                       </span>
                       <el-input v-model="editData.number"></el-input>
                   </li>
-                      <el-button type="primary">提交</el-button>
+                  <el-button type="primary" @click="addUser">提交</el-button>
               </ul>
           </div>
       </div>
@@ -76,15 +76,15 @@
                       <span class="left">
                         新密码:
                       </span>
-                      <el-input v-model="editData.number" class="right"></el-input>
+                      <el-input v-model="editPassword.number" class="right"></el-input>
                   </li>
                   <li class="clearfix">
                       <span class="left">
                         确认密码:
                       </span>
-                      <el-input v-model="editData.number" class="right"></el-input>
+                      <el-input v-model="editPassword.confirmNumber" class="right"></el-input>
                   </li>
-                  <el-button type="primary">提交</el-button>
+                  <el-button type="primary" @click="submitPassword">提交</el-button>
               </ul>
           </div>
       </div>
@@ -119,24 +119,24 @@
             label="序号">
             </el-table-column>
             <el-table-column
-            prop=""
+            prop="number"
             label="登录账号"
             width="130">
             </el-table-column>
             <el-table-column
-            prop=""
+            prop="name"
             label="用户名称">
             </el-table-column>
             <el-table-column
-            prop=""
+            prop="bs"
             label="用户标识">
             </el-table-column>
             <el-table-column
-            prop=""
+            prop="phone"
             label="联系电话">
             </el-table-column>
             <el-table-column
-            prop=""
+            prop="email"
             label="电子邮箱">
             </el-table-column>
             <el-table-column 
@@ -185,7 +185,21 @@ export default {
         user: "",
         region: ""
       },
-      tableData: [],
+      tableData: [
+        {
+          number: 1,
+          name: 2,
+          bs: 3,
+          phone: 4,
+          eamil: 5
+        },{
+          number: 2,
+          name: 2,
+          bs: 3,
+          phone: 4,
+          eamil: 5
+        }
+      ],
       data2: [
         {
           id: 1,
@@ -241,8 +255,10 @@ export default {
         label: "label"
       },
       currentPage: 1,
+      addUserData: {},
       editData: {},
       details: {},
+      editPassword: {},
       editisHidden: false,
       detailsisHidden: false,
       powerisHidden: false,
@@ -276,11 +292,18 @@ export default {
     handlePower() {
       this.powerisHidden = true;
     },
+    handleDelete(index, row) {
+      if(row===this.tableData[index]){
+        this.tableData.splice(index,1)
+      }
+    },
     hiddenPower() {
       this.powerisHidden = false;
     },
-    handlePassword() {
+    handlePassword(index,row) {
       this.passwordisHidden = true;
+      this.editData=row
+      this.editPassword={}
     },
     hiddenPassword() {
       this.passwordisHidden = false;
@@ -291,6 +314,16 @@ export default {
     createuser() {
       this.editData = {};
       this.editisHidden = true;
+    },
+    addUser() {
+      this.tableData.push(JSON.parse(JSON.stringify(this.editData)));
+      this.editData = {};
+      this.editisHidden = false;
+    },
+    submitPassword(){
+      console.log(this.editData)
+      this.passwordisHidden = false;
+      this.editPassword={}
     }
   }
 };
